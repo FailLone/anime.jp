@@ -8,3 +8,10 @@
 * 子页面
 * 请求配置页面内容
 * tab跳转改为单页面
+
+## usage
+```
+  npm install serve
+  serve
+  open http://localhost:5000
+```

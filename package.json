@@ -1,0 +1,22 @@
+{
+  "name": "anime.jp",
+  "version": "1.0.0",
+  "description": "外包项目",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FailLone/anime.jp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FailLone/anime.jp/issues"
+  },
+  "homepage": "https://github.com/FailLone/anime.jp#readme",
+  "devDependencies": {
+    "serve": "^9.4.0"
+  }
+}
