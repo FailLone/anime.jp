@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>title</title>
+
+    <link href="../theme/info.css" rel="stylesheet" type="text/css">
+    <script>
+       var map = {
+           onigiri: 2050,
+           '': 1305,
+           staff: 1385,
+           link: 1314,
+           newsbacknamber: 1897,
+           access: 962,
+           contact: 620,
+           sitemap: 912
+       }
+       function updateContent() {
+           var content = document.getElementById('content')
+           
+           content.src=window.location.hash ? './' + window.location.hash.replace('#', '') + '.html': './info.html'
+           content.height = map[window.location.hash.replace('#', '')]
+       }
+       window.onhashchange = window.onload = updateContent
+    </script>
+</head>
+
+<body>
+
+    <div id="pagebody">
+        <div id="header">
+            <table width="850" border="0" cellspacing="2">
+                <tbody>
+                    <tr>
+                        <td width="540" height="103" align="left" valign="top">
+                            <div class="ekuralogo">
+                                <a href="../index.html">
+                                    <img src="../assets/homepage/ekuraaruki.gif" width="40" height="50" alt="エクラちゃん">
+                                    <img src="../assets/homepage/ekuraanimal_2.png" width="224" height="50" alt="アニメ制作会社エクラアニマル">
+                                </a>
+                            </div>
+                        </td>
+                        <td width="300" align="right" valign="top">
+                            <a href="./info/index.html#contact">
+                                <img src="../assets/homepage/sitemap.png" width="119" height="50" alt="サイトマップ" hspace="8">
+                            </a>
+
+                            <a href="./info/index.html#contact">
+                                <img src="../assets/homepage/mail.png" width="120" height="50" alt="お問い合わせ" hspace="8">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ▼以下メニュー -->
+
+            <center>
+
+                <!-- tab1 -->
+                <a href="../index.html">
+                    <img border="0" src="../assets/homepage/home.png" width="79" height="28" alt="ホーム" hspace="25">
+                </a>
+
+                <!-- tab2 -->
+                <a href="../info/index.html">
+                    <img border="0" src="../assets/homepage/info.png" width="114" height="29" alt="会社案内" hspace="25">
+                </a>
+
+
+                <!-- tab3 -->
+                <a href="../katudou.html">
+                    <img border="0" src="../assets/homepage/katudou.png" width="53" height="27" alt="活動" hspace="25">
+                </a>
+
+                <!-- tab4 -->
+                <a href="../saiyou.html">
+                    <img border="0" src="../assets/homepage/saiyou.png" width="55" height="26" alt="採用" hspace="25">
+                </a>
+            </center>
+        </div>
+
+
+        <!-- メニューend -->
+
+        <table width="850" border="0" cellspacing="40">
+            <tbody>
+                <tr>
+                    <td valign="top" width="200" height="138">
+
+
+                        <!-- ▼▼ページ内容 -->
+
+
+                        <!-- ▼サイドメニュー -->
+
+                        <div id="sidemenu">
+                            <ul>
+                                <li>
+                                    <a href="../info/index.html">エクラアニマルとは</a>
+                                </li>
+                                <li>
+                                    <a href="#onigiri">自主制作にこだわるわけ</a>
+                                </li>
+                                <li>
+                                    <a href="#staff">スタッフ紹介</a>
+                                </li>
+                                <li>
+                                    <a href="#link">リンク</a>
+                                </li>
+                                <li>
+                                    <a href="#newsbacknamber">おしらせバックナンバー</a>
+                                </li>
+                                <li>
+                                    <a href="#access">アクセスマップ</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">お問い合わせ</a>
+                                </li>
+                                <li>
+                                    <a href="#sitemap">サイトマップ</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <!-- サイドメニューend -->
+
+
+                    </td>
+                    <td align="left" valign="top">
+                        <iframe id="content" width="528" height="1305" scrolling="no" frameborder="0">
+                        </iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+        <div id="footer">
+            <center>
+                <table width="800">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h2>ようこそ!
+                                    <a href="../">アニメ制作会社エクラアニマル</a>
+                                </h2>
+                                <p>
+                                    <font size="2px">
+                                        参与制作
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="800" border="1" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <th scope="col" width="200">
+                                <p>TVシリーズのアニメ制作</p>
+                            </th>
+                            <th scope="col" width="200">
+                                <p>自主制作アニメ</p>
+                            </th>
+                            <th scope="col" width="200">
+                                <p>イベント協力</p>
+                            </th>
+                            <th scope="col" width="200">
+                                <p>関連サイト</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <font size="-2">
+                                        <a href="." target="new">＋シンカリオン</a>
+                                        <br>
+                                        <a href="../anime/mukashibanashi/" target="new">＋ふるさとめぐり日本の昔ばなし</a>
+                                    </font>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <font size="-2">
+                                        <a href="../katudou/kazenoyouni.html">＋風のように</a>
+                                        <br>
+                                        <a href="../katudou/daruma.html">＋だるまちゃんシリーズ</a>
+                                        <br>
+                                        <a href="../katudou/fuitin.html">＋フイチンさん</a>
+                                        <br>
+                                        <a href="../katudou/charadoku.html">＋キャラ丸くんとドク丸くん</a>
+                                        <br>
+                                        <a href="../katudou/kappa.html">＋かっぱのすりばち</a>
+                                        <br>
+                                        <a href="../katudou/kurumi.html">＋くるくるクルミちゃん</a>
+                                        <br>
+                                        <a href="../katudou/sakura.html">＋さくらとサクリン</a>
+                                    </font>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <font size="-2">＋人形劇フェスタin西東京
+                                        <br> ＋子育てフェスタ＠西東京
+                                        <br>
+                                        <a href="" target="new">＋西東京商工祭り</a>
+                                        <br>
+                                        <a href="" target="new">＋西東京市民祭り</a>
+                                        <br>
+                                        <a href="" target="new">＋西東京アースデイフェア</a>
+                                    </font>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <font size="-2">
+                                        <a href="" target="new">＋エクラアニマルネットショップ</a>
+                                        <br>
+                                        <a href="" target="new">＋E★アニマル日記【スタッフブログ】</a>
+                                        <br>
+                                        <a href="" target="new">＋キャラ丸くんとドク丸くん【Facebook】</a>
+                                        <br>
+                                        <a href="" target="new">＋キャラ丸くん【Twitter】</a>
+                                        <br>
+                                        <a href="" target="new">＋風のように【Twitter】</a>
+                                        <br>
+                                        <a href="" target="new">＋キャラ丸くんとドク丸くん4コマ漫画</a>
+                                        <br>
+                                        <a href="" target="new">＋ふらふら蟻【ラジオ番組】</a>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="800">
+                    <tbody>
+                        <tr> </tr>
+                    </tbody>
+                </table>
+                <span style="color:#69c;">Copyright(C)</span>
+                <a href="">版权所有</a>
+                <p></p>
+            </center>
+        </div>
+    </div>
+    <!-- #EndLibraryItem -->
+
+
+    <audio controls="controls" style="display: none;"></audio>
+</body>
+
+</html>
