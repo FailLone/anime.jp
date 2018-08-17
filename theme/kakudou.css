@@ -1,0 +1,295 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*============================================
+全般的なスタイル
+============================================*/
+* {
+	line-height:1.5;	/*全要素の行の高さを1.5倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	color:#000000;		/*文字色*/
+
+} 
+body {
+	background-color:#ffffff;	/*ページ全体の背景色*/
+}
+
+div#pagebody {
+	width:850px; margin:0 auto;	/*内容全体をセンタリング*/
+	text-decoration:none;			/*リンクの下線を無くす*/
+	background-color:#ffffff;		/*内容全体の背景色*/
+}
+
+/*見出し１*/
+h {
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-weight: 900;
+	font-size:20px;        /*フォントサイズ*/
+	color:#6787b0;		/*文字色*/
+}
+
+/*見出し２*/
+h2 {
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-weight: 700;
+	font-size:15px;        /*フォントサイズ*/
+	color:#6787b0;		/*文字色*/
+}
+
+/*文字*/
+p {
+	line-height:1.3;	/*全要素の行の高さを◯倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:14px;        /*フォントサイズ*/
+	color:#000000;		/*文字色*/
+}
+
+
+/*色違い文字*/
+span {
+	line-height:1.3;	/*全要素の行の高さを◯倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:14px;        /*フォントサイズ*/
+	color:#6787b0;		/*文字色*/
+}
+
+/*表用文字2*/
+p2 {
+	line-height:1;	/*全要素の行の高さを◯倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:12px;        /*フォントサイズ*/
+	color:#000000;		/*文字色*/
+}
+
+/*表用色違い文字2*/
+span2 {
+	line-height:1.3;	/*全要素の行の高さを◯倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:13px;        /*フォントサイズ*/
+	color:#FFF;		/*文字色*/
+}
+
+/*線*/
+hr{
+border:none;
+border-top:dashed 3px #6787b0;　　　/*太さと色*/
+height:1px;     /*破線の間隔*/
+color:#FFFFFF;   
+width:500px; margin:0 auto;	/*内容全体をセンタリング*/
+}
+
+a:link { color:#6787b0;
+         text-decoration: none; }     /*未訪問のリンク*/
+a:visited { color: #6787b0;
+         text-decoration: none; }  /*訪問済みのリンク*/
+a:hover { color: #FFCC99;
+         text-decoration: none; }    /*ポイント時のリンク*/
+a:active { color: ##FFCC99;
+         text-decoration: none; }   /*選択中のリンク*/
+		 
+/*サイトマップ用文字*/
+p3 {
+	line-height:0;	/*全要素の行の高さを◯倍にする*/
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:14px;        /*フォントサイズ*/
+	color:#000000;		/*文字色*/
+}
+
+ul {
+margin: 0 0 0 1em;
+padding: 0;
+}
+
+/*============================================
+サイドメニュー
+============================================*/
+#sidemenu ul{ 
+margin: 0; 
+padding: 0; 
+list-style: none; 
+}
+#sidemenu li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+}
+#sidemenu li a{
+display: block; 
+border: 1px solid #FFF;
+background-color: #c6e1ef;　　/*背景色*/
+padding: 3px 10px;
+text-decoration: none;
+color: #336699;　　　　　　/*文字色*/
+width: 200px; 
+margin: 10px 0px;
+text-align: left;
+font-size: 14px;
+font-weight: 700;
+font-color:#633;
+font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+}
+#sidemenu li a:hover{
+border: 1px solid #FFF;
+background-color: #b0c4de;　　/*オンマウス背景色*/
+}
+
+/*============================================
+サイドメニュー2
+============================================*/
+#sidemenu2 ul{ 
+margin: 0; 
+padding: 0; 
+list-style: none; 
+}
+#sidemenu2 li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+}
+#sidemenu2 li a{
+display: block; 
+border: 1px solid #FFF;
+background-color: #E5F3FF;　　/*背景色*/
+padding: 3px 10px;
+text-decoration: none;
+color: #336699;　　　　　　/*文字色*/
+width: 200px; 
+margin: 10px 0px;
+text-align: left;
+font-size: 14px;
+font-weight: 700;
+font-color:#633;
+font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+}
+#sidemenu2 li a:hover{
+border: 1px solid #FFF;
+background-color: #C1DFFF;　　/*オンマウス背景色*/
+}
+
+/*============================================
+注文フォームボタン
+============================================*/
+
+#tyuumon ul{ 
+margin: 0; 
+padding: 0; 
+list-style: none; 
+}
+#tyuumon li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+}
+#tyuumon li a{
+display: block; 
+border: 1px solid #FFF;
+background-color: #FC9;
+padding: 3px 10px;
+text-decoration: none;
+color: #333;
+width: 180px; 
+margin: 10px 0px;
+text-align: left;
+font-size: 15px;
+font-weight: 700;
+font-color:#633;
+font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+}
+#tyuumon li a:hover{
+border: 1px solid #FFF;
+background-color: #F96;
+}
+
+/*============================================
+メールフォーム
+============================================*/
+
+form {
+    /* フォームをページの中央に置く */
+    margin: 0 auto;
+    width: 450px;
+    /* フォームの範囲がわかるようにする */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+
+label {
+    /* すべてのラベルを同じサイズにして、きちんと揃える */
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size:15px;        /*フォントサイズ*/
+	color:#69C;		/*文字色*/
+}
+
+input, textarea {
+    /* すべてのテキストフィールドのフォント設定を一致させる
+       デフォルトで、textarea は等幅フォントが設定されている */
+    font: 1em sans-serif;
+
+    /* テキストフィールドのボーダーの外見を同一にする */
+    border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+    /* アクティブな要素を少し強調する */
+    border-color: #000;
+}
+
+textarea {
+    /* 複数行のテキストフィールドをラベルにきちんと揃える */
+    vertical-align: top;
+
+    /* テキスト入力に十分な領域を与える */
+    height: 5em;
+	width:19em;
+}
+
+.button {
+    /* ボタンを他のテキストフィールドと同じ場所に置く */
+    padding-left: 90px; /* label 要素と同じサイズ */
+}
+
+button {
+    /* このマージンは、ラベルとテキストフィールドの間のスペースと
+       おおよそ同じスペースを表す */
+    margin-left: .5em;
+}
+
+
+/*============================================
+ニュースバックナンバー
+============================================*/
+
+.newsbacknamber {
+  overflow: scroll;   /* スクロール表示 */ 
+	width:400px; margin:0 auto;	/*内容全体をセンタリングと、横幅*/
+  height: 700px;            /*高さ*/
+  background-color: #FFF;　　/*背景色*/
+}
+
+/*============================================
+ヘッダ
+============================================*/
+div#header {
+	background-color:#ffffff;		/*ヘッダ部分の背景色*/
+}
+
+.ekuralogo {
+	padding:20px 20px 0px 20px;}
+
+/*============================================
+フッタ
+============================================*/
+div#footer {
+	font-size:small;			 /*フォントサイズを小さくする*/
+	font-color:#96DFFF;			 /*フォントカラー*/
+	text-decoration:none;			/*リンクの下線を無くす*/
+	margin: 20px 0px;
+}
