@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/FailLone/anime.jp#readme",
   "devDependencies": {
-    "serve": "^9.4.0"
+    "serve": "^9.6.0"
   }
 }

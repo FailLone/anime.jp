@@ -1,36 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0035)http://www.anime.or.jp/katudou.html -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>title</title>
 
-    <link href="../theme/info.css" rel="stylesheet" type="text/css">
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>title</title>
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+
+    <link href="../theme/katudou.css" rel="stylesheet" type="text/css">
     <script>
-       var map = {
-           onigiri: 2050,
-           '': 1305,
-           staff: 1385,
-           link: 1314,
-           newsbacknamber: 1897,
-           access: 962,
-           contact: 620,
-           sitemap: 912
-       }
-       function updateContent() {
-           var content = document.getElementById('content')
-           
-           content.src=window.location.hash ? './info/' + window.location.hash.replace('#', '') + '.html': './info/info.html'
-           content.height = map[window.location.hash.replace('#', '')]
-       }
-       window.onhashchange = window.onload = updateContent
-    </script>
+        var map = {
+            '': 783,
+            'daruma': 2630,
+            'charadoku': 1655,
+            'fuitin': 4295,
+            'kappa': 2006,
+            'sakura': 1836,
+            'kurumi': 2765,
+            'kazenoyouni': 4006,
+            'sakuhinetc': 1273,
+            'movie': 2671,
+            'charago': 955,
+            'eco': 2075,
+            'gomi': 1819,
+            'anime': 1915,
+            'katudouetc': 1541,
+            'kako': 5433,
+            '110103': 3262,
+            '101012': 4673,
+            '100709': 4183,
+            '100305': 2800
+        }
+        function updateContent() {
+            var content = document.getElementById('content')
+            
+            content.src=window.location.hash ? './katudou/' + window.location.hash.replace('#', '') + '.html': './katudou/katudou.html'
+            content.height = map[window.location.hash.replace('#', '')]
+        }
+        window.onhashchange = window.onload = updateContent
+     </script>
 </head>
 
 <body>
 
     <div id="pagebody">
         <div id="header">
+            <!-- ▼エクラロゴとサイトマップ、メール -->
+
             <table width="850" border="0" cellspacing="2">
                 <tbody>
                     <tr>
@@ -84,7 +104,6 @@
 
 
         <!-- メニューend -->
-
         <table width="850" border="0" cellspacing="40">
             <tbody>
                 <tr>
@@ -98,30 +117,44 @@
 
                         <div id="sidemenu">
                             <ul>
-                                <li>
-                                    <a href="../info/index.html">エクラアニマルとは</a>
-                                </li>
-                                <li>
-                                    <a href="#onigiri">自主制作にこだわるわけ</a>
-                                </li>
-                                <li>
-                                    <a href="#staff">スタッフ紹介</a>
-                                </li>
-                                <li>
-                                    <a href="#link">リンク</a>
-                                </li>
-                                <li>
-                                    <a href="#newsbacknamber">おしらせバックナンバー</a>
-                                </li>
-                                <li>
-                                    <a href="#access">アクセスマップ</a>
-                                </li>
-                                <li>
-                                    <a href="#contact">お問い合わせ</a>
-                                </li>
-                                <li>
-                                    <a href="#sitemap">サイトマップ</a>
-                                </li>
+                                <li><a href="./katudou/index.html">エクラアニマルの活動</a></li>
+                            </ul>
+                        </div>
+
+                        <h2>作品紹介</h2>
+                        <div id="sidemenu">
+                            <ul>
+                                <li><a href="#daruma">だるまちゃんシリーズ</a></li>
+                                <li><a href="#charadoku">キャラ丸くんとドク丸くん</a></li>
+                                <li><a href="#fuitin">フイチンさん</a></li>
+                                <li><a href="#kappa">かっぱのすりばち</a></li>
+                                <li><a href="#sakura">さくらとサクリン</a></li>
+                                <li><a href="#kurumi">くるくるクルミちゃん</a></li>
+                                <li><a href="#kazenoyouni">風のように</a></li>
+                                <li><a href="#sakuhinetc">その他</a></li>
+                            </ul>
+                        </div>
+
+                        <h2>活動紹介</h2>
+                        <div id="sidemenu">
+                            <ul>
+                                <li><a href="#movie">無料出張上映会</a></li>
+                                <li><a href="#charago">キャラ丸くんが行く！</a></li>
+                                <li><a href="#eco">エコキャップ回収</a></li>
+                                <li><a href="#gomi">ゴミ拾い</a></li>
+                                <li><a href="#anime">アニメで世界にアピール</a></li>
+                                <li><a href="#katudouetc">その他</a></li>
+                            </ul>
+                        </div>
+
+                        <h2>過去の活動記録</h2>
+                        <div id="sidemenu2">
+                            <ul>
+                                <li><a href="#kako">活動記録一覧</a></li>
+                                <li><a href="#110103">2011年 1〜3月</a></li>
+                                <li><a href="#101012">2010年 10〜12月</a></li>
+                                <li><a href="#100709">2010年 7〜9月</a></li>
+                                <li><a href="#100305">2010年 3〜5月</a></li>
                             </ul>
                         </div>
 
@@ -139,9 +172,12 @@
         </table>
 
 
+        <!-- ▲▲ページ内容▲▲ -->
 
 
+        <!-- コピーライト -->
 
+        <!-- #BeginLibraryItem "/Library/under.lbi" -->
         <div id="footer">
             <center>
                 <table width="800">
@@ -254,7 +290,5 @@
     <!-- #EndLibraryItem -->
 
 
-    <audio controls="controls" style="display: none;"></audio>
-</body>
-
+    <audio controls="controls" style="display: none;"></audio></body>
 </html>
