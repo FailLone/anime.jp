@@ -10,7 +10,7 @@
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
   <script>
-    var host = ''
+    var host = 'http://39.106.187.16:8000'
     $(function () {
       $.ajax({url: host + '/api/sowing', success: function(res) {
         if (res.statusNo === 1) {
