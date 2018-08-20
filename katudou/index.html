@@ -12,36 +12,33 @@
     <!-- TemplateEndEditable -->
 
     <link href="../theme/katudou.css" rel="stylesheet" type="text/css">
+  <script src="./src/jquery.min.js"></script>
     <script>
-        var map = {
-            '': 783,
-            'daruma': 2630,
-            'charadoku': 1655,
-            'fuitin': 4295,
-            'kappa': 2006,
-            'sakura': 1836,
-            'kurumi': 2765,
-            'kazenoyouni': 4006,
-            'sakuhinetc': 1273,
-            'movie': 2671,
-            'charago': 955,
-            'eco': 2075,
-            'gomi': 1819,
-            'anime': 1915,
-            'katudouetc': 1541,
-            'kako': 5433,
-            '110103': 3262,
-            '101012': 4673,
-            '100709': 4183,
-            '100305': 2800
-        }
-        function updateContent() {
-            var content = document.getElementById('content')
-
-            content.src=window.location.hash ? './katudou/' + window.location.hash.replace('#', '') + '.html': './katudou/katudou.html'
-            content.height = map[window.location.hash.replace('#', '')]
-        }
-        window.onhashchange = window.onload = updateContent
+        var host = ''
+       $(function() {
+           $.ajax({url: host + '/api/activity', success: function(res) {
+               if (res.statusNo === 1) {
+                    var html = ''
+                   for (var i = 0; i < res.data.length; i++) {
+                       var v = res.data[i]
+                       html += '<h2>' + v.title + '</h2><div class="sidemenu"><ul>'
+                       for (var j = 0; j < v.activityValues.length; j++) {
+                           if (j === 0 && i === 0) {$('#content').html(v.activityValues[j].content)}
+                           html += '<li><a>' + v.activityValues[j].title + '</a></li>'
+                       }
+                       html += '</ul></div>'
+                   }
+                    $('#huodong').html(html);
+                    $('.sidemenu').each(function(k, v) {
+                        $(this).find('ul li').each(function(k2) {
+                            $(this).on('click', function() {
+                                $('#content').html(res.data[k].activityValues[k2].content)
+                            })
+                        })
+                    })
+               }
+           }})
+       })
      </script>
 </head>
 
@@ -80,23 +77,31 @@
 
                 <!-- tab1 -->
                 <a href="../index.html">
-                    <img border="0" src="../assets/homepage/home.png" width="79" height="28" alt="ホーム" hspace="25">
+                    <div style="width: 112px; height: 28px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">首页</span>
+                    </div>
                 </a>
 
                 <!-- tab2 -->
                 <a href="../info/index.html">
-                    <img border="0" src="../assets/homepage/info.png" width="114" height="29" alt="会社案内" hspace="25">
+                    <div style="width: 161px; height: 29px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">公司介绍</span>
+                    </div>
                 </a>
 
 
                 <!-- tab3 -->
                 <a href="../katudou/index.html">
-                    <img border="0" src="../assets/homepage/katudou.png" width="53" height="27" alt="活動" hspace="25">
+                    <div style="width: 120px; height: 27px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">活动</span>
+                    </div>
                 </a>
 
                 <!-- tab4 -->
                 <a href="../saiyou.html">
-                    <img border="0" src="../assets/homepage/saiyou.png" width="55" height="26" alt="採用" hspace="25">
+                    <div style="width: 118px; height: 26px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">招聘</span>
+                    </div>
                 </a>
             </center>
         </div>
@@ -106,56 +111,7 @@
         <table width="850" border="0" cellspacing="40">
             <tbody>
                 <tr>
-                    <td valign="top" width="200" height="138">
-
-
-                        <!-- ▼▼ページ内容 -->
-
-
-                        <!-- ▼サイドメニュー -->
-
-                        <div id="sidemenu">
-                            <ul>
-                                <li><a href="./katudou/index.html">エクラアニマルの活動</a></li>
-                            </ul>
-                        </div>
-
-                        <h2>作品紹介</h2>
-                        <div id="sidemenu">
-                            <ul>
-                                <li><a href="#daruma">だるまちゃんシリーズ</a></li>
-                                <li><a href="#charadoku">キャラ丸くんとドク丸くん</a></li>
-                                <li><a href="#fuitin">フイチンさん</a></li>
-                                <li><a href="#kappa">かっぱのすりばち</a></li>
-                                <li><a href="#sakura">さくらとサクリン</a></li>
-                                <li><a href="#kurumi">くるくるクルミちゃん</a></li>
-                                <li><a href="#kazenoyouni">風のように</a></li>
-                                <li><a href="#sakuhinetc">その他</a></li>
-                            </ul>
-                        </div>
-
-                        <h2>活動紹介</h2>
-                        <div id="sidemenu">
-                            <ul>
-                                <li><a href="#movie">無料出張上映会</a></li>
-                                <li><a href="#charago">キャラ丸くんが行く！</a></li>
-                                <li><a href="#eco">エコキャップ回収</a></li>
-                                <li><a href="#gomi">ゴミ拾い</a></li>
-                                <li><a href="#anime">アニメで世界にアピール</a></li>
-                                <li><a href="#katudouetc">その他</a></li>
-                            </ul>
-                        </div>
-
-                        <h2>過去の活動記録</h2>
-                        <div id="sidemenu2">
-                            <ul>
-                                <li><a href="#kako">活動記録一覧</a></li>
-                                <li><a href="#110103">2011年 1〜3月</a></li>
-                                <li><a href="#101012">2010年 10〜12月</a></li>
-                                <li><a href="#100709">2010年 7〜9月</a></li>
-                                <li><a href="#100305">2010年 3〜5月</a></li>
-                            </ul>
-                        </div>
+                    <td valign="top" width="200" height="138" id="huodong">
 
 
                         <!-- サイドメニューend -->
@@ -163,8 +119,8 @@
 
                     </td>
                     <td align="left" valign="top">
-                        <iframe id="content" width="528" height="1305" scrolling="no" frameborder="0">
-                        </iframe>
+                        <div id="content">
+                        </div>
                     </td>
                 </tr>
             </tbody>

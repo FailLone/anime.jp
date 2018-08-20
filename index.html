@@ -10,17 +10,56 @@
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
   <script>
+    var host = ''
     $(function () {
-      $(".rslides").responsiveSlides({
-        speed: 500,            // Integer: Speed of the transition, in milliseconds
-        timeout: 6000,          // Integer: Time between slide transitions, in milliseconds
-        pager: false,           // Boolean: Show pager, true or false
-        nav: true,             // Boolean: Show navigation, true or false
-        prevText: "＜",   // String: Text for the "previous" button
-        nextText: "＞",       // String: Text for the "next" button
-        before: function () { },   // Function: Before callback
-        after: function () { }     // Function: After callback
-      });
+      $.ajax({url: host + '/api/sowing', success: function(res) {
+        if (res.statusNo === 1) {
+          var html = ''
+          for (var i = 0; i < res.data.length; i++) {
+            var v = res.data[i]
+            html += '<li style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">' +
+                 '<a href="' + (v.url.indexOf('http') !== -1 ? v.url : 'http://' + v.url) + '" target="new">' +
+                    '<img src="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
+                 '</a>' +
+              '</li>'
+          }
+          $('.rslides').html(html).responsiveSlides({
+            speed: 500,            // Integer: Speed of the transition, in milliseconds
+            timeout: 6000,          // Integer: Time between slide transitions, in milliseconds
+            pager: false,           // Boolean: Show pager, true or false
+            nav: true,             // Boolean: Show navigation, true or false
+            prevText: "＜",   // String: Text for the "previous" button
+            nextText: "＞",       // String: Text for the "next" button
+            before: function () { },   // Function: Before callback
+            after: function () { }     // Function: After callback
+          })
+        }
+      }})
+      $.ajax({url: host + '/api/news', success: function(res) {
+        if (res.statusNo === 1) {
+          var formatRes = {}
+          for(var i = 0; i< res.data.length; i++) {
+            var v = res.data[i]
+            var year = new Date(v.createTime).getFullYear()
+            var day = new Date(v.createTime).getMonth() + '月' + new Date(v.createTime).getDate() + '日'
+            formatRes[year] = formatRes[year] || {}
+            formatRes[year][day] = formatRes[year][day] || []
+            formatRes[year][day].push(v.content)
+          }
+          var html = ''
+          for (var i in formatRes) {
+            html += '<h2>' + i + '</h2>'
+            for (var j in formatRes[i]) {
+              html += '<p><span>' + j + '</span>'
+                 for (var n =0 ; n < formatRes[i][j].length;n++) {
+                   html+= '<br><a>' + formatRes[i][j][n] + '</a>'
+                 }
+              html += '<p><hr>'
+            }
+          }
+        }
+        $('#xinweng').html(html)
+      }})
     });
   </script>
 
@@ -62,26 +101,34 @@
 
       <center>
 
-        <!-- tab1 -->
-        <a href="./index.html">
-          <img border="0" src="./assets/homepage/home.png" width="79" height="28" alt="ホーム" hspace="25">
-        </a>
+       <!-- tab1 -->
+                <a href="../index.html">
+                    <div style="width: 112px; height: 28px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">首页</span>
+                    </div>
+                </a>
 
-        <!-- tab2 -->
-        <a href="./info/index.html">
-          <img border="0" src="./assets/homepage/info.png" width="114" height="29" alt="会社案内" hspace="25">
-        </a>
+                <!-- tab2 -->
+                <a href="../info/index.html">
+                    <div style="width: 161px; height: 29px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">公司介绍</span>
+                    </div>
+                </a>
 
 
-        <!-- tab3 -->
-        <a href="./katudou/index.html">
-          <img border="0" src="./assets/homepage/katudou.png" width="53" height="27" alt="活動" hspace="25">
-        </a>
+                <!-- tab3 -->
+                <a href="../katudou/index.html">
+                    <div style="width: 120px; height: 27px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">活动</span>
+                    </div>
+                </a>
 
-        <!-- tab4 -->
-        <a href="./saiyou.html">
-          <img border="0" src="./assets/homepage/saiyou.png" width="55" height="26" alt="採用" hspace="25">
-        </a>
+                <!-- tab4 -->
+                <a href="../saiyou.html">
+                    <div style="width: 118px; height: 26px;display: inline-block;">
+                        <span style="font-size: 23px;font-weight: 600;">招聘</span>
+                    </div>
+                </a>
       </center>
     </div>
 
@@ -91,26 +138,6 @@
       <br>
 
       <ul class="rslides rslides1">
-        <li id="rslides1_s0" class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-          <a href="" target="new">
-            <img src="./assets/homepage/冷巴动画头图.jpg" width="850" height="400" style="border-radius: 25px;" 　alt="昭和のかわいい！くるくるクルミちゃん展　2018年3月30日〜4月8日　神保町　ブックハウスカフェ">
-          </a>
-        </li>
-        <li id="rslides1_s1" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;"
-          class="">
-          <a href="" target="new">
-            <img src="./assets/homepage/动漫游学头图.jpg" width="850" height="400" style="border-radius: 25px;" 　alt="YouTube配信アニメ　あいかわい小劇場　兜武士　シリーズ第一弾　モノマネ芸人による100%全力モノマネアニメ　あいかわい翔　ガンリキ佐藤大輔　弱つよむ">
-          </a>
-        </li>
-        <li id="rslides1_s2" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;"
-          class="">
-          <a href="" target="new">
-            <img src="./assets/homepage/芝山努手绘稿头图.jpg" width="850" height="400" style="border-radius: 25px;" 　alt="エクラアニマル　採用　2017　アニメ会社　アニメ　制作進行　募集　求人　アニメーター　募集　求人">
-          </a>
-        </li>
-      </ul>
-      <ul class="rslides rslides2">
-
       </ul>
     </center>
 
@@ -124,53 +151,7 @@
 
             <br>
             <img src="./assets/homepage/news.png" width="250" height="42" alt="news">
-            <div class="news">
-
-
-
-
-              <h2>２０１８年</h2>
-
-
-              <p>
-                <span>4月6日</span>
-                <br>
-                <a href="">トップページ</a>を更新しました。
-                <br>
-                <a href="">アニメ兜武士</a>が完成しました。</p>
-
-              <hr>
-
-              <h2>２０１７年</h2>
-
-
-              <p>
-                <span>12月15日</span>
-                <br>
-                <a href="">トップページ</a>を更新しました。
-                <br>
-                <a href="./saiyou.html" target="new">採用</a>を更新しました。</p>
-
-              <hr>
-
-              <p>
-                <span>7月1日</span>
-                <br>
-                <a href="./saiyou.html">採用</a>を更新しました。</p>
-
-              <hr>
-
-              <p>
-                <span>5月2日</span>
-                <br>
-                <a href="./">トップページ</a>を更新しました。
-                <br>
-                <a href="./saiyou.html">採用</a>を更新しました。
-                <br>
-                <a href="./info/index.html#access">アクセス</a>を更新しました。
-                <br>
-                <a href="./info/index.html#newsbacknamber">BACKNUMBER</a>を更新しました。
-              </p>
+            <div class="news" id="xinweng">
             </div>
             <!-- バックナンバー -->
             <p>▶
@@ -341,7 +322,12 @@
               <br> ▶︎
               <a href="./info/index.html#access">地図はこちら</a>
               <br>
-              <img src="./assets/homepage/adderss.png" width="200" height="134" alt="addres" vspace="10">
+              <div style="width: 200px; height: 134px;text-align: left">
+                  <span style="display: inline-block;font-size: 13px;">天津市自贸试验区熙元广场1-2012</span>
+                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">TEL&nbsp;&nbsp;</span>18222177796（中国） 81+09098422118（日本）</span>
+                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">FAX&nbsp;&nbsp;</span>81-0424615301（日本）</span>
+                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">EMAIL&nbsp;&nbsp;</span>zuozuo_0101@126.com（中国） zuozuo0101@gmail.com（日本）</span>
+              </div>
               <br>
               <img src="./assets/homepage/tizuun.png" width="200" height="23" alt="地図">
             </p>
