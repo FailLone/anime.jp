@@ -14,7 +14,7 @@
     <link href="../theme/katudou.css" rel="stylesheet" type="text/css">
   <script src="./src/jquery.min.js"></script>
     <script>
-        var host = ''
+        var host = 'http://39.106.187.16:8000'
        $(function() {
            $.ajax({url: host + '/api/activity', success: function(res) {
                if (res.statusNo === 1) {
