@@ -10,6 +10,9 @@
 	color:#000000;		/*文字色*/
 
 } 
+#header a:hover {
+    text-shadow: 5px 5px 5px #cacaca;
+}
 body {
 	background-color:#ffffff;	/*ページ全体の背景色*/
 }
@@ -34,7 +37,7 @@ a:visited { color: #6787b0;
          text-decoration: none; }  /*訪問済みのリンク*/
 a:hover { color: #FFCC99;
          text-decoration: none; }    /*ポイント時のリンク*/
-a:active { color: ##FFCC99;
+a:active { color: #FFCC99;
          text-decoration: none; }   /*選択中のリンク*/
 		 
 /*文字*/
@@ -50,8 +53,8 @@ hr{
 border: none;
 border-top: dashed 2px #6787b0;　　　/*太さと色*/
 height: 1px;     /*破線の間隔*/
-color:#FFFFFF;   
-margin:0 auto;	/*内容全体をセンタリング*/
+color: #FFFFFF;   
+margin: 0 auto;	/*内容全体をセンタリング*/
 }
 		 
 
@@ -107,9 +110,9 @@ div#header {
 ============================================*/
 
 .news {
-  overflow: scroll;   /* スクロール表示 */ 
+  overflow: auto;   /* スクロール表示 */ 
 	width:520px; margin:0;  text-align:left;	/*内容全体左寄せと、横幅*/
-  height: 150px;            /*高さ*/
+  height: 300px;            /*高さ*/
   background-color: #FFF;　　/*背景色*/
   
   scrollbar-face-color: #ffffff;
@@ -126,13 +129,196 @@ span {
 	font-style:normal;			 /*フォントスタイルを標準にする*/
 	font-size:16px;        /*フォントサイズ*/
 	color:#6787b0;		/*文字色*/
-
+}
 /*============================================
 フッタ
 ============================================*/
-div#footer {
-	font-size:small;			 /*フォントサイズを小さくする*/
-	font-color:#96DFFF;			 /*フォントカラー*/
-	text-decoration:none;			/*リンクの下線を無くす*/
-	margin: 20px 0px;
+.footer-content {
+    position: relative;
+    max-width: 50em;
+    margin: 0 auto;
+    padding: 0 1.6875em;
+    z-index: 10;
+    margin-top: 50px;
+}
+#legal {
+    display: block;
+    clear: both;
+    font-size: 0.7em;
+    text-align: center;
+    margin: 0 1.1875em;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.footer-tab.contact-us {
+    text-align: left;
+}
+
+.footer-tab {
+    float: left;
+    width: 33.33%;
+}
+#footer h3 {
+    margin: 1em 0 0 0;
+    padding: 0;
+}
+#footer p {
+    margin: 0;
+    padding: 0;
+    color: #5065BD;
+    font-size: 1em;
+    font-weight: 800;
+}
+#footer a {
+    color: #21ffe2;
+    display: inline-block;
+    text-decoration: none;
+}
+.footer-tab.location {
+    text-align: right;
+}
+.television iframe {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 10px solid;
+  border-radius: 32px;
+}
+
+.television {
+  width: 450px;
+  margin: 10px auto;
+  transform: scale(1.2, 1.2)
+}
+
+.television__top {
+  width: 40%;
+  margin: auto;
+  position: relative;
+}
+
+.television__antenna {
+  width: 5px;
+  height: 100px;
+  background-color: #3b3733;
+  margin-bottom: -10px;
+}
+
+.television__antenna--left {
+  transform: rotate(-30deg);
+  float: left;
+}
+
+.television__antenna--right {
+  transform: rotate(30deg);
+  float: right;
+}
+
+.television__antenna__base {
+  height: 20px;
+  background-color: #3b3733;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  margin-bottom: 10px;
+  clear: both;
+  position: relative;
+  z-index: 2;
+}
+
+.television__center {
+   position: relative;
+   z-index: 2;
+   width: 350px;
+   height: 200px;
+   background-color: #7a4e27;
+   border: solid 3px #eef4c4;
+   box-shadow: -10px -10px #d64832;
+   border-radius: 48px;
+   margin: 0 auto;
+   padding: 10px 15px;
+}
+
+.television__screen {
+   width: 270px;
+   height: 190px;
+   background-color: #eed5b6;
+   border-radius: 48px;
+   float: left;
+}
+
+.television__channels-wrapper {
+   width: 70px;
+   height: 190px;
+   background-color: #efd6b7;
+   border-radius: 48px;
+   float: right;
+}
+
+.television__channels {
+   padding: 0;
+}
+
+.television__channel {
+   list-style-type: none;
+   background-color: #7f4b23;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   margin: 5px;
+   float: left;
+   position: relative;
+}
+
+.television__channel a {
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: #e6a146;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+}
+
+.television__channel a:active {
+   box-shadow: inset rgba(255,255,255,0.6) 0 2px 2px,
+               inset rgba(0,0,0,0.15) 0 -2px 5px, /* inner shadow */
+					rgba(100,100,100,0.6) 0 2px 1px,
+               rgba(100,100,100,0.6) 0 2px 1px; /* color border */
+}
+
+.television__base {
+   width: 60%;
+   margin: auto;
+}
+
+.television__base:after {
+   clear: both;
+   content: "";
+   display: table;
+}
+
+.television__foot {
+   width: 20px;
+   height: 70px;
+	margin-top: -20px;
+   background-color: #7d4d25;
+   border: solid 3px #eed5b6;
+   border-radius: 48px;
+}
+
+.television__foot--left {
+   transform: rotate(30deg);
+   float: left;
+}
+
+.television__foot--right {
+   transform: rotate(-30deg);
+   float: right;
+}
+
+.p {
+  margin-top: 70px;
 }

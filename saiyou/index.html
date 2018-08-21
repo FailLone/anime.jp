@@ -6,6 +6,35 @@
     <title>title</title>
 
     <link href="../theme/caiyong.css" rel="stylesheet" type="text/css">
+    <script src="./src/jquery.min.js"></script>
+    <script>
+        var host = 'http://39.106.187.16:8000'
+       $(function() {
+           $.ajax({url: host + '/api/recruit', success: function(res) {
+               if (res.statusNo === 1) {
+                   var html = ''
+                   var realData = []
+                   for (var i = 0; i < res.data.length; i++) {
+                       var v = res.data[i]
+                       if (v.status !== 1) {
+                           continue
+                       }
+                       realData.push(v)
+                       html += '<li style="cursor: pointer"><a>' + v.title + '</a></li>'
+                       if (realData.length === 1) {
+                           $('#content').html(v.content)
+                       }
+                   }
+                    $('#sidemenu ul').html(html);
+                    $('#sidemenu ul li').each(function(k, v) {
+                        $(this).on('click', function() {
+                            $('#content').html(realData[k].content)
+                        })
+                    })
+               }
+           }})
+       })
+     </script>
 </head>
 
 <body>
@@ -23,12 +52,8 @@
                             </div>
                         </td>
                         <td width="300" align="right" valign="top">
-                            <a href="./info/index.html#contact">
-                                <img src="../assets/homepage/sitemap.png" width="119" height="50" alt="サイトマップ" hspace="8">
-                            </a>
-
-                            <a href="./info/index.html#contact">
-                                <img src="../assets/homepage/mail.png" width="120" height="50" alt="お問い合わせ" hspace="8">
+                            <a href="#contact">
+                                <img src="../assets/homepage/contact.png" width="200" height="100" alt="联系我们" hspace="8">
                             </a>
                         </td>
                     </tr>
@@ -86,10 +111,7 @@
 
                         <div id="sidemenu">
                             <ul>
-                                <li>
-                                    <a href="#">採用情報</a>
-                                </li>
-                            </ul>
+                                </ul>
                         </div>
 
 
@@ -97,118 +119,7 @@
 
 
                     </td>
-                    <td width="586" align="left" valign="top">
-
-                             <!-- ▼コンテンツ真ん中 --><!-- TemplateBeginEditable name="採用コンテンツ" -->
-
-
-                             <h>採用情報 2017</h>
-                            <center> <table width="408" border="0" cellspacing="3">
-                              <tbody><tr>
-                                <td width="218"><h2>１.制作進行・・・<span>募集中</span><br>
-                                  ２.アニメーター・・・<span>募集中</span></h2></td>
-                              </tr>
-                            </tbody></table></center>
-
-                            <center>
-                            <table width="500" border="0" cellspacing="3">
-                              <tbody><tr>
-                                <td width="80" align="center" bgcolor="#69C">商号</td>
-                                <td width="407"><p>株式会社　エクラアニマル</p></td>
-                              </tr>
-                              <tr>
-                                <td align="center" bgcolor="#69C">所在地</td>
-                                <td><p>〒188-0003<br>
-                                東京都西東京市北原町3-6-10</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">連絡先</td>
-                                <td><p><img src="../assets/info/denwa.png" width="169" height="33" alt="電話番号"><br><br>
-                                    <img src="../assets/homepage/mail.png" width="134" height="17" alt="メールアドレス"><br>
-                            <a href="mailto:info@anime.or.jp">▶︎メールを作成</a></p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">設立年月</td>
-                                <td><p>2007年11月</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">代表取締役</td>
-                                <td><p>豊永ひとみ</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">社員数</td>
-                                <td><p>10名(男性5名 女性5名)</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">業務内容</td>
-                                <td><h>１.制作進行</h>
-                                <p>TVシリーズのスケジュール等、制作管理全般<br>
-                                給与：固定給（能力・資質により随時決定）</p>
-                                <h>２.アニメーター</h>
-                                    <p>TVシリーズのアニメ作画作業<br>
-                                給与：完全出来高（能力・資質により個人差有り）</p></td>
-                              </tr>
-                                  <tr>
-                                <td align="center" bgcolor="#69C">採用条件</td>
-                                <td><p>●年齢・学歴不問<br>
-                                  ●普通免許を所持していること（制作進行）</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">求める人材</td>
-                                <td><p>●明るく元気な方<br>
-                                  ●経験者歓迎</p></td>
-                              </tr>
-                            </tbody></table></center>
-
-                            <br>
-
-                             <h>応募方法</h>
-                             <br><br>
-
-                            <center>
-                            <table width="500" border="0" cellspacing="3">
-                              <tbody><tr>
-                                <td width="80" align="center" bgcolor="#69C">書類選考</td>
-                                <td width="407"><p>以下の書類をご用意し、郵送にてご応募ください。<br>
-                                １.履歴書（写真貼付）<br>
-                                ※希望職種を必ず記載してください。<br>
-                                ２.作文<br>
-                                1000字程度／ワープロ可<br>
-                                テーマは自由ですが、アニメ以外を題材としてください。</p></td>
-                              </tr>
-                              <tr>
-                                <td align="center" bgcolor="#69C">面接</td>
-                                <td><p>書類選考通過後、面接を受けていただきます。<br>
-                                面接の際にはポートフォリオを持参してください。<br>
-                               ※映像やイラスト作品に限らず、自分をPRできる制作物があれば何でも持参してください。<br>
-                                 ※ポートフォリオは面接後しばらくお預かりさせていただき、合否に関わらず後日郵送にてお返しさせていただきます。</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">実技試験</td>
-                                <td><p>アニメーター志望の方は、面接同日に数時間程度の実技試験を行います。</p></td>
-                              </tr>
-                                <tr>
-                                <td align="center" bgcolor="#69C">送付先</td>
-                                <td><p>〒188-0003<br>
-                                東京都西東京市北原町3-6-10<br>
-                                株式会社エクラアニマル<br>
-                                採用担当：豊永</p></td>
-                              </tr>
-                            </tbody></table>
-
-                            <br>
-
-                                ※応募前には弊社HP及び<a href="http://animaruya.exblog.jp/" target="new">ブログ</a>をごらんください。<br>
-                                アニメーション制作会社としては、すこし変わった会社です。<p></p>
-
-                               <p> <img src="../assets/info/ekura003.jpg" width="80" height="51" alt="ekura">
-
-                               </p><p>更新日：2017年12月15日</p>
-                            </center>
-
-
-                             <!-- TemplateEndEditable --><!-- コンテンツ真ん中end -->
-
+                    <td width="586" align="left" valign="top" id="content">
                                </td>
                 </tr>
             </tbody>
@@ -219,112 +130,32 @@
 
 
         <div id="footer">
-            <center>
-                <!--<table width="800">-->
-                    <!--<tbody>-->
-                        <!--<tr>-->
-                            <!--<td>-->
-                                <!--<h2>ようこそ!-->
-                                    <!--<a href="../">アニメ制作会社エクラアニマル</a>-->
-                                <!--</h2>-->
-                                <!--<p>-->
-                                    <!--<font size="2px">-->
-                                        <!--参与制作-->
-                                    <!--</font>-->
-                                <!--</p>-->
-                            <!--</td>-->
-                        <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
-                <!--<table width="800" border="1" cellspacing="0" cellpadding="0">-->
-                    <!--<tbody>-->
-                        <!--<tr>-->
-                            <!--<th scope="col" width="200">-->
-                                <!--<p>TVシリーズのアニメ制作</p>-->
-                            <!--</th>-->
-                            <!--<th scope="col" width="200">-->
-                                <!--<p>自主制作アニメ</p>-->
-                            <!--</th>-->
-                            <!--<th scope="col" width="200">-->
-                                <!--<p>イベント協力</p>-->
-                            <!--</th>-->
-                            <!--<th scope="col" width="200">-->
-                                <!--<p>関連サイト</p>-->
-                            <!--</th>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>-->
-                                <!--<p>-->
-                                    <!--<font size="-2">-->
-                                        <!--<a href="." target="new">＋シンカリオン</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../anime/mukashibanashi/" target="new">＋ふるさとめぐり日本の昔ばなし</a>-->
-                                    <!--</font>-->
-                                <!--</p>-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<p>-->
-                                    <!--<font size="-2">-->
-                                        <!--<a href="../katudou/index.html#kazenoyouni">＋風のように</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#daruma">＋だるまちゃんシリーズ</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#fuitin">＋フイチンさん</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#charadoku">＋キャラ丸くんとドク丸くん</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#kappa">＋かっぱのすりばち</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#kurumi">＋くるくるクルミちゃん</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="../katudou/index.html#sakura">＋さくらとサクリン</a>-->
-                                    <!--</font>-->
-                                <!--</p>-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<p>-->
-                                    <!--<font size="-2">＋人形劇フェスタin西東京-->
-                                        <!--<br> ＋子育てフェスタ＠西東京-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋西東京商工祭り</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋西東京市民祭り</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋西東京アースデイフェア</a>-->
-                                    <!--</font>-->
-                                <!--</p>-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<p>-->
-                                    <!--<font size="-2">-->
-                                        <!--<a href="" target="new">＋エクラアニマルネットショップ</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋E★アニマル日記【スタッフブログ】</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋キャラ丸くんとドク丸くん【Facebook】</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋キャラ丸くん【Twitter】</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋風のように【Twitter】</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋キャラ丸くんとドク丸くん4コマ漫画</a>-->
-                                        <!--<br>-->
-                                        <!--<a href="" target="new">＋ふらふら蟻【ラジオ番組】</a>-->
-                                    <!--</font>-->
-                                <!--</p>-->
-                            <!--</td>-->
-                        <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
-                <table width="800">
-                    <tbody>
-                        <tr> </tr>
-                    </tbody>
-                </table>
-                <span style="color:#69c;">Copyright(C)</span>
-                <a href="">版权所有</a>
-                <p></p>
-            </center>
+            <a name="footer"></a>
+      <div class="footer-content">
+        <div class="footer-row">
+          <div class="sprite-contact-cta"></div>
+          <div class="footer-tab contact-us">
+            <h3>CONTACT US</h3>
+            <p>zuozuo_0101@126.com（中国）
+                  zuozuo0101@gmail.com（日本）</p>
+            <h3>TEL</h3>
+            <p>18222177796（中国）
+                  81+09098422118（日本）</p>
+          </div>
+          <div class="footer-tab"><div style="height: 150px"></div></div>
+          <div class="footer-tab location">
+            <h3>LOCATION</h3>
+            <p>天津市自贸试验区熙元广场1-2012</p>
+            <p class="footer-map">
+              <a href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%A4%A9%E6%B4%A5%E5%B8%82%E8%87%AA%E8%B4%B8%E8%AF%95%E9%AA%8C%E5%8C%BA%E7%86%99%E5%85%83%E5%B9%BF%E5%9C%BA1-2012"
+                target="_blank">
+                <span class="sprite sprite-map"></span>View Map</a>
+            </p>
+            <h3>FAX</h3>
+            <p>81-0424615301（日本）</p>
+          </div>
+        </div>
+        <div id="legal">© ANIMAL - Making life more meaningful</div>
         </div>
     </div>
     <!-- #EndLibraryItem -->

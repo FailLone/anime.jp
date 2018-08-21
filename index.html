@@ -12,41 +12,50 @@
   <script>
     var host = 'http://39.106.187.16:8000'
     $(function () {
-      $.ajax({url: host + '/api/sowing', success: function(res) {
-        if (res.statusNo === 1) {
-          var html = ''
-          for (var i = 0; i < res.data.length; i++) {
-            var v = res.data[i]
-            html += '<li style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">' +
-                 '<a href="' + (v.url.indexOf('http') !== -1 ? v.url : 'http://' + v.url) + '" target="new">' +
-                    '<img src="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
-                 '</a>' +
-              '</li>'
+      $.ajax({
+        url: host + '/api/sowing', success: function (res) {
+          if (res.statusNo === 1) {
+            var html = ''
+            for (var i = 0; i < res.data.length; i++) {
+              var v = res.data[i]
+              html += '<li style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">' +
+                '<a href="' + (v.url.indexOf('http') !== -1 ? v.url : 'http://' + v.url) + '" target="new">' +
+                '<img src="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
+                '</a>' +
+                '</li>'
+            }
+            $('.rslides').html(html).responsiveSlides({
+              speed: 500,            // Integer: Speed of the transition, in milliseconds
+              timeout: 6000,          // Integer: Time between slide transitions, in milliseconds
+              pager: false,           // Boolean: Show pager, true or false
+              nav: true,             // Boolean: Show navigation, true or false
+              prevText: "＜",   // String: Text for the "previous" button
+              nextText: "＞",       // String: Text for the "next" button
+              before: function () { },   // Function: Before callback
+              after: function () { }     // Function: After callback
+            })
           }
-          $('.rslides').html(html).responsiveSlides({
-            speed: 500,            // Integer: Speed of the transition, in milliseconds
-            timeout: 6000,          // Integer: Time between slide transitions, in milliseconds
-            pager: false,           // Boolean: Show pager, true or false
-            nav: true,             // Boolean: Show navigation, true or false
-            prevText: "＜",   // String: Text for the "previous" button
-            nextText: "＞",       // String: Text for the "next" button
-            before: function () { },   // Function: Before callback
-            after: function () { }     // Function: After callback
-          })
         }
-      }})
-      $.ajax({url: host + '/api/news', success: function(res) {
-        if (res.statusNo === 1) {
-          var html = ''
-          for(var i = 0; i< res.data.length; i++) {
-            var v = res.data[i]
-            if(v.status === 1) {
-              html = v.content
+      })
+      $.ajax({
+        url: host + '/api/news', success: function (res) {
+          if (res.statusNo === 1) {
+            var html = ''
+            for (var i = 0; i < res.data.length; i++) {
+              var v = res.data[i]
+              if (v.status === 1) {
+                html = v.content
+              }
             }
           }
+          $('#xinweng').html(html)
         }
-        $('#xinweng').html(html)
-      }})
+      })
+      $('.television__channel a').on('click', function(e) {
+        console.info(123)
+        $('.television__screen iframe').attr('src', $(this).attr('href'))
+            e.preventDefault()
+      })
     });
   </script>
 
@@ -67,17 +76,14 @@
             <td width="540" height="103" align="left" valign="top">
               <div class="ekuralogo">
                 <a href="./index.html">
-                  <img src="./assets/homepage/WechatIMG355.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
+                  <img src="./assets/homepage/WechatIMG355.png" width="130" height="130" alt="左灜">
                 </a>
               </div>
             </td>
             <td width="300" align="right" valign="top">
-              <a href="./info/index.html#sitemap">
-                <img src="./assets/homepage/sitemap.png" width="119" height="50" alt="サイトマップ" hspace="8">
-              </a>
 
-              <a href="./info/index.html#contact">
-                <img src="./assets/homepage/mail.png" width="120" height="50" alt="お問い合わせ" hspace="8">
+              <a href="#footer">
+                <img src="./assets/homepage/contact.png" width="200" height="100" alt="联系我们" hspace="8">
               </a>
             </td>
           </tr>
@@ -88,34 +94,34 @@
 
       <center>
 
-       <!-- tab1 -->
-                <a href="../index.html">
-                    <div style="width: 112px; height: 28px;display: inline-block;">
-                        <span style="font-size: 23px;font-weight: 600;">首页</span>
-                    </div>
-                </a>
+        <!-- tab1 -->
+        <a href="../index.html">
+          <div style="width: 112px; height: 28px;display: inline-block;">
+            <span style="font-size: 23px;font-weight: 600;">首页</span>
+          </div>
+        </a>
 
-                <!-- tab2 -->
-                <a href="../info/index.html">
-                    <div style="width: 161px; height: 29px;display: inline-block;">
-                        <span style="font-size: 23px;font-weight: 600;">公司介绍</span>
-                    </div>
-                </a>
+        <!-- tab2 -->
+        <a href="../info/index.html">
+          <div style="width: 161px; height: 29px;display: inline-block;">
+            <span style="font-size: 23px;font-weight: 600;">公司介绍</span>
+          </div>
+        </a>
 
 
-                <!-- tab3 -->
-                <a href="../katudou/index.html">
-                    <div style="width: 120px; height: 27px;display: inline-block;">
-                        <span style="font-size: 23px;font-weight: 600;">活动</span>
-                    </div>
-                </a>
+        <!-- tab3 -->
+        <a href="../katudou/index.html">
+          <div style="width: 120px; height: 27px;display: inline-block;">
+            <span style="font-size: 23px;font-weight: 600;">活动</span>
+          </div>
+        </a>
 
-                <!-- tab4 -->
-                <a href="../saiyou.html">
-                    <div style="width: 118px; height: 26px;display: inline-block;">
-                        <span style="font-size: 23px;font-weight: 600;">招聘</span>
-                    </div>
-                </a>
+        <!-- tab4 -->
+        <a href="../saiyou.html">
+          <div style="width: 118px; height: 26px;display: inline-block;">
+            <span style="font-size: 23px;font-weight: 600;">招聘</span>
+          </div>
+        </a>
       </center>
     </div>
 
@@ -140,128 +146,6 @@
             <img src="./assets/homepage/news.png" width="250" height="42" alt="news">
             <div class="news" id="xinweng">
             </div>
-            <!-- バックナンバー -->
-            <p>▶
-              <a href="./info/index.html#newsbacknamber">BACKNUMBER</a>
-              <br>
-              <br>
-
-              <embed src='http://player.youku.com/player.php/sid/XMzI5NzMxMTgzMg==/v.swf' allowFullScreen='true' quality='high' width='530' height='298' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
-              <br>
-              <br>
-
-              <br>
-
-              <img src="./assets/homepage/ekura(1).png" width="500" height="170" alt="子どもに見せたいアニメを、心を込めて、てづくりで。エクラアニマルではテレビシリーズだけでなく、自主制作アニメづくりや地域活動への参加、無料出張上映会などを積極的に行っています。">
-            </p>
-            <div style="text-align:right">
-              <a href="./info/index.html">
-                <img src="./assets/homepage/info(1).png" width="170" height="47" alt="会社案内を見る">
-              </a>
-            </div>
-            <br>
-
-            <hr>
-            <br>
-
-            <a href="./katudou/index.html#charago">
-              <img src="./assets/homepage/ibe.png" width="98" height="200" alt="イベント">
-            </a>
-            <a href="./katudou/index.html#eco">
-              <img src="./assets/homepage/eco.png" width="98" height="200" alt="エコキャップ">
-            </a>
-            <a href="./katudou/index.html#gomi">
-              <img src="./assets/homepage/gomi.png" width="98" height="200" alt="ゴミ拾い">
-            </a>
-            <a href="./katudou/index.html#movie">
-              <img src="./assets/homepage/zyouei.png" width="98" height="200" alt="上映会">
-            </a>
-            <a href="./katudou/index.html#katudouetc">
-              <img src="./assets/homepage/ken.png" width="98" height="200" alt="献血">
-            </a>
-            <div style="text-align:right">
-              <a href="./katudou/index.html#index">
-                <img src="./assets/homepage/katudou(1).png" width="170" height="47" alt="活動を見る">
-              </a>
-            </div>
-            <br>
-
-            <hr>
-
-            <table width="520" border="0">
-              <tbody>
-                <tr>
-                  <td align="center" valign="bottom">
-                    <p>
-                      <a href="" target="new">フイチンさん
-                        <br> DVD
-                        <br>
-                        <img src="./assets/homepage/fuitindvd.png" width="100" height="151" alt="アニメフイチンさんDVD">
-                        <br> ¥2,800
-                      </a>
-                    </p>
-                  </td>
-
-                  <td align="center" valign="bottom">
-                    <p>
-                      <a href="" target="new">かっぱのすりばち
-                        <br> DVD
-                        <br>
-                        <img src="./assets/homepage/kappadvd.png" width="100" height="151" alt="アニメかっぱのすりばちDVD">
-                        <br> ¥1,000
-                      </a>
-                    </p>
-                  </td>
-
-                  <td align="center" valign="bottom">
-                    <p>
-                      <a href="" target="new">キャラ丸くんとドク丸くん
-                        <br> DVD
-                        <br>
-                        <img src="./assets/homepage/charadvd.png" width="100" height="100" alt="キャラ丸くんとドク丸くんDVD">
-                        <br> ¥1,000
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-
-              </tbody>
-            </table>
-            <div style="text-align:right">
-              <a href="" target="new">
-                <img src="./assets/homepage/shop(1).png" width="170" height="47" alt="ショップを見る">
-              </a>
-            </div>
-            <br>
-
-            <hr>
-            <br>
-
-            <a href="./katudou/index.html#anime">
-              <img src="./assets/homepage/syoukai.png" width="500" height="276" alt="企業CM　ブライダルアニメーション　イベントオープニング　地域活動紹介">
-            </a>
-            <div style="text-align:right">
-              <a href="./katudou/index.html#anime">
-                <img src="./assets/homepage/uketamawari.png" width="170" height="47" alt="制作承ります">
-              </a>
-            </div>
-            <br>
-
-            <a href="" target="new">
-              <img src="./assets/homepage/shop(2).png" width="250" height="200" alt="エクラアニマルネットショップ" style="margin:15px; border-radius: 15px;">
-            </a>
-            <a href="" target="new">
-              <img src="./assets/homepage/line.png" width="250" height="200" alt="キャラ丸くんとドク丸くんlineスタンプ販売中" style="margin:15px; border-radius: 15px;">
-              <br>
-
-            </a>
-            <a href="" target="new">
-              <img src="./assets/homepage/radio.png" width="300" height="200" alt="FM西東京ラジオ番組「エクラアニマルのフラフラ蟻」" style="margin:15px; border-radius: 15px;">
-            </a>
-            <a href="" target="_blank">
-              <img src="./assets/homepage/kyara4koma.png" width="200" height="200" alt="４コマ漫画「キャラ丸くんとドク丸くん」" style="margin:15px; border-radius: 15px;">
-            </a>
-
           </td>
 
 
@@ -270,167 +154,77 @@
           <td width="250" align="center" valign="top">
 
 
-            <br>
-            <br>
-
-            <a href="http://ekuraanimal.sblo.jp/" target="_blank">
-              <img src="./assets/homepage/blog(1).png" width="184" height="185" alt="エクラアニマルスタッフブログ「E★アニマル日記」">
-            </a>
-
-            <a href="https://www.facebook.com/kyaradoku" target="new">
-              <img src="./assets/homepage/facebook.png" width="98" height="150" alt="キャラ丸くんとドク丸くんフェイスブック" hspace="10">
-            </a>
-
-            <a href="https://twitter.com/charamarukun" target="new">
-              <img src="./assets/homepage/tweets.png" width="98" height="150" alt="キャラ丸くんツイッター" hspace="10">
-            </a>
-            <br>
-            <br>
-
-            <a href="https://twitter.com/kazenoyouni_pj" target="new">
-              <img src="./assets/homepage/kazetweets.jpg" width="180" height="101" alt="風のようにツイッター" hspace="10">
-            </a>
-            <br>
-            <br> 風のように主題歌
-
-            <br>
-            <a href="https://www.amazon.co.jp/%E6%81%8B%E9%A2%A8-%E6%9D%BE%E6%9C%AC%E4%BD%B3%E5%A5%88/dp/B01GC3O4X2">
-              <img src="./assets/homepage/koicd.png" width="134" height="134" alt="恋風CD">
-              <br> 松本佳奈「恋風」CD発売中！
-            </a>
-            <br>
-
-            <br>
-
+    
             <p>
-              <a href="./info/index.html#access">
-                <img src="./assets/homepage/tizu.png" width="200" height="65" alt="地図">
-              </a>
+              <iframe src="/map.html" frameBorder=0 height=340 width=240 scrolling=no></iframe>
               <br> ▶︎
-              <a href="./info/index.html#access">地図はこちら</a>
+              <a href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%A4%A9%E6%B4%A5%E5%B8%82%E8%87%AA%E8%B4%B8%E8%AF%95%E9%AA%8C%E5%8C%BA%E7%86%99%E5%85%83%E5%B9%BF%E5%9C%BA1-2012" target="="_blank>查看地图</a>
               <br>
-              <div style="width: 200px; height: 134px;text-align: left">
-                  <span style="display: inline-block;font-size: 13px;">天津市自贸试验区熙元广场1-2012</span>
-                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">TEL&nbsp;&nbsp;</span>18222177796（中国） 81+09098422118（日本）</span>
-                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">FAX&nbsp;&nbsp;</span>81-0424615301（日本）</span>
-                  <span style="display: inline-block;font-size: 13px;"><span style="font-size: 15px;">EMAIL&nbsp;&nbsp;</span>zuozuo_0101@126.com（中国） zuozuo0101@gmail.com（日本）</span>
-              </div>
-              <br>
-              <img src="./assets/homepage/tizuun.png" width="200" height="23" alt="地図">
             </p>
 
           </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+          <div class="television">
+  <div class="television__top">
+    <div class="television__antenna television__antenna--left"></div>
+    <div class="television__antenna television__antenna--right"></div>
+    <div class="television__antenna__base"></div>
+  </div><!-- television__top -->
+  <div class="television__center">
+    <div class="television__screen">
+      <iframe src="https://v.qq.com/iframe/player.html?vid=c0762s6brso&tiny=0&auto=0" frameborder="0" allowfullscreen></iframe>
+    </div><!-- television__screen -->
+    <div class="television__channels-wrapper">
+      <ul class="television__channels">
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=r0025ymf1mo&tiny=0&auto=0" title="频道 1"></a></li>
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=w00202az26u&tiny=0&auto=0" title="频道 2"></a></li>
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=f002639e6zj&tiny=0&auto=0" title="频道 3"></a></li>
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=g0014r3khdw&tiny=0&auto=0" title="频道 4"></a></li>
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=v0025d8nel1&tiny=0&auto=0" title="频道 5"></a></li>
+        <li class="television__channel"><a href="https://v.qq.com/iframe/player.html?vid=i0026ssfw4k&tiny=0&auto=0" title="频道 6"></a></li>
+      </ul>
+    </div><!-- television__channels-wrapper -->
+  </div><!-- television__center -->
+  <div class="television__base">
+    <div class="television__foot television__foot--left"></div>
+    <div class="television__foot television__foot--right"></div>
+  </div><!-- television__base -->
+</div>
+</td>
         </tr>
       </tbody>
     </table>
 
     <div id="footer">
-      <center>
-        <!--<table width="800">-->
-          <!--<tbody>-->
-            <!--<tr>-->
-              <!--<td>-->
-                <!--<h2>ようこそ!-->
-                  <!--<a href="./">アニメ制作会社エクラアニマル</a>-->
-                <!--</h2>-->
-                <!--<p>-->
-                  <!--<font size="2px">-->
-                    <!--参与制作-->
-                  <!--</font>-->
-                <!--</p>-->
-              <!--</td>-->
-            <!--</tr>-->
-          <!--</tbody>-->
-        <!--</table>-->
-        <!--<table width="800" border="1" cellspacing="0" cellpadding="0">-->
-          <!--<tbody>-->
-            <!--<tr>-->
-              <!--<th scope="col" width="200">-->
-                <!--<p>TVシリーズのアニメ制作</p>-->
-              <!--</th>-->
-              <!--<th scope="col" width="200">-->
-                <!--<p>自主制作アニメ</p>-->
-              <!--</th>-->
-              <!--<th scope="col" width="200">-->
-                <!--<p>イベント協力</p>-->
-              <!--</th>-->
-              <!--<th scope="col" width="200">-->
-                <!--<p>関連サイト</p>-->
-              <!--</th>-->
-            <!--</tr>-->
-            <!--<tr>-->
-              <!--<td>-->
-                <!--<p>-->
-                  <!--<font size="-2">-->
-                    <!--<a href="." target="new">＋シンカリオン</a>-->
-                    <!--<br>-->
-                    <!--<a href="./anime/mukashibanashi/" target="new">＋ふるさとめぐり日本の昔ばなし</a>-->
-                  <!--</font>-->
-                <!--</p>-->
-              <!--</td>-->
-              <!--<td>-->
-                <!--<p>-->
-                  <!--<font size="-2">-->
-                    <!--<a href="./katudou/index.html#kazenoyouni">＋風のように</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#daruma">＋だるまちゃんシリーズ</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#fuitin">＋フイチンさん</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#charadoku">＋キャラ丸くんとドク丸くん</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#kappa">＋かっぱのすりばち</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#kurumi">＋くるくるクルミちゃん</a>-->
-                    <!--<br>-->
-                    <!--<a href="./katudou/index.html#sakura">＋さくらとサクリン</a>-->
-                  <!--</font>-->
-                <!--</p>-->
-              <!--</td>-->
-              <!--<td>-->
-                <!--<p>-->
-                  <!--<font size="-2">＋人形劇フェスタin西東京-->
-                    <!--<br> ＋子育てフェスタ＠西東京-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋西東京商工祭り</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋西東京市民祭り</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋西東京アースデイフェア</a>-->
-                  <!--</font>-->
-                <!--</p>-->
-              <!--</td>-->
-              <!--<td>-->
-                <!--<p>-->
-                  <!--<font size="-2">-->
-                    <!--<a href="" target="new">＋エクラアニマルネットショップ</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋E★アニマル日記【スタッフブログ】</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋キャラ丸くんとドク丸くん【Facebook】</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋キャラ丸くん【Twitter】</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋風のように【Twitter】</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋キャラ丸くんとドク丸くん4コマ漫画</a>-->
-                    <!--<br>-->
-                    <!--<a href="" target="new">＋ふらふら蟻【ラジオ番組】</a>-->
-                  <!--</font>-->
-                <!--</p>-->
-              <!--</td>-->
-            <!--</tr>-->
-          <!--</tbody>-->
-        <!--</table>-->
-        <table width="800">
-          <tbody>
-            <tr> </tr>
-          </tbody>
-        </table>
-        <span style="color:#69c;">Copyright(C)</span>
-        <a href="">版权所有</a>
-        <p></p>
-      </center>
+      <a name="footer"></a>
+      <div class="footer-content">
+        <div class="footer-row">
+          <div class="sprite-contact-cta"></div>
+          <div class="footer-tab contact-us">
+            <h3>CONTACT US</h3>
+            <p>zuozuo_0101@126.com（中国）
+                  zuozuo0101@gmail.com（日本）</p>
+            <h3>TEL</h3>
+            <p>18222177796（中国）
+                  81+09098422118（日本）</p>
+          </div>
+          <div class="footer-tab"><div style="height: 150px"></div></div>
+          <div class="footer-tab location">
+            <h3>LOCATION</h3>
+            <p>天津市自贸试验区熙元广场1-2012</p>
+            <p class="footer-map">
+              <a href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%A4%A9%E6%B4%A5%E5%B8%82%E8%87%AA%E8%B4%B8%E8%AF%95%E9%AA%8C%E5%8C%BA%E7%86%99%E5%85%83%E5%B9%BF%E5%9C%BA1-2012"
+                target="_blank">
+                <span class="sprite sprite-map"></span>View Map</a>
+            </p>
+            <h3>FAX</h3>
+            <p>81-0424615301（日本）</p>
+          </div>
+        </div>
+        <div id="legal">© ANIMAL - Making life more meaningful</div>
+      </div>
     </div>
   </div>
   <!-- #EndLibraryItem -->
@@ -439,4 +233,5 @@
 
   <audio controls="controls" style="display: none;"></audio>
 </body>
+
 </html>
