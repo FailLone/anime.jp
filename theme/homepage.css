@@ -17,10 +17,13 @@ body {
 	background-color:#ffffff;	/*ページ全体の背景色*/
 }
 
+body {
+    background: url(../assets/homepage/dh_bg.jpg) no-repeat scroll center 0 transparent;
+}
+
 div#pagebody {
 	width:850px; margin:0 auto;	/*内容全体をセンタリング*/
 	text-decoration:none;			/*リンクの下線を無くす*/
-	background-color:#ffffff;		/*内容全体の背景色*/
 }
 
 /*見出し２*/
@@ -62,7 +65,7 @@ margin: 0 auto;	/*内容全体をセンタリング*/
 ヘッダ
 ============================================*/
 div#header {
-	background-color:#ffffff;		/*ヘッダ部分の背景色*/
+	// background-color:#ffffff;
 }
 
 .ekuralogo {
