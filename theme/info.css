@@ -9,7 +9,7 @@
 	font-style:normal;			 /*フォントスタイルを標準にする*/
 	color:#000000;		/*文字色*/
 
-} 
+}
 #header a:hover {
     text-shadow: 5px 5px 5px #cacaca;
 }
@@ -17,10 +17,15 @@ body {
 	background-color:#ffffff;	/*ページ全体の背景色*/
 }
 
+body {
+    margin: 0;
+    background: url(../assets/homepage/dh_bg.jpg) no-repeat scroll center 0 transparent;
+}
+
 div#pagebody {
+    min-height: 700px;
 	width:850px; margin:0 auto;	/*内容全体をセンタリング*/
 	text-decoration:none;			/*リンクの下線を無くす*/
-	background-color:#ffffff;		/*内容全体の背景色*/
 }
 
 /*見出し１*/
@@ -77,7 +82,7 @@ hr{
 border:none;
 border-top:dashed 3px #6787b0;　　　/*太さと色*/
 height:1px;     /*破線の間隔*/
-color:#FFFFFF;   
+color:#FFFFFF;
 width:500px; margin:0 auto;	/*内容全体をセンタリング*/
 }
 
@@ -89,7 +94,7 @@ a:hover { color: #FFCC99;
          text-decoration: none; }    /*ポイント時のリンク*/
 a:active { color: ##FFCC99;
          text-decoration: none; }   /*選択中のリンク*/
-		 
+
 /*サイトマップ用文字*/
 p3 {
 	line-height:0;	/*全要素の行の高さを◯倍にする*/
@@ -106,24 +111,24 @@ padding: 0;
 /*============================================
 サイドメニュー
 ============================================*/
-#sidemenu ul{ 
-margin: 0; 
-padding: 0; 
-list-style: none; 
+#sidemenu ul{
+margin: 0;
+padding: 0;
+list-style: none;
 }
-#sidemenu li{ 
-display: inline; 
-padding: 0; 
-margin: 0; 
+#sidemenu li{
+display: inline;
+padding: 0;
+margin: 0;
 }
 #sidemenu li a{
-display: block; 
+display: block;
 border: 1px solid #FFF;
 background-color: #c6e1ef;　　/*背景色*/
 padding: 3px 10px;
 text-decoration: none;
 color: #336699;　　　　　　/*文字色*/
-width: 200px; 
+width: 200px;
 margin: 10px 0px;
 text-align: left;
 font-size: 14px;
@@ -139,24 +144,24 @@ background-color: #b0c4de;　　/*オンマウス背景色*/
 /*============================================
 サイドメニュー2
 ============================================*/
-#sidemenu2 ul{ 
-margin: 0; 
-padding: 0; 
-list-style: none; 
+#sidemenu2 ul{
+margin: 0;
+padding: 0;
+list-style: none;
 }
-#sidemenu2 li{ 
-display: inline; 
-padding: 0; 
-margin: 0; 
+#sidemenu2 li{
+display: inline;
+padding: 0;
+margin: 0;
 }
 #sidemenu2 li a{
-display: block; 
+display: block;
 border: 1px solid #FFF;
 background-color: #E5F3FF;　　/*背景色*/
 padding: 3px 10px;
 text-decoration: none;
 color: #336699;　　　　　　/*文字色*/
-width: 200px; 
+width: 200px;
 margin: 10px 0px;
 text-align: left;
 font-size: 14px;
@@ -173,24 +178,24 @@ background-color: #C1DFFF;　　/*オンマウス背景色*/
 注文フォームボタン
 ============================================*/
 
-#tyuumon ul{ 
-margin: 0; 
-padding: 0; 
-list-style: none; 
+#tyuumon ul{
+margin: 0;
+padding: 0;
+list-style: none;
 }
-#tyuumon li{ 
-display: inline; 
-padding: 0; 
-margin: 0; 
+#tyuumon li{
+display: inline;
+padding: 0;
+margin: 0;
 }
 #tyuumon li a{
-display: block; 
+display: block;
 border: 1px solid #FFF;
 background-color: #FC9;
 padding: 3px 10px;
 text-decoration: none;
 color: #333;
-width: 180px; 
+width: 180px;
 margin: 10px 0px;
 text-align: left;
 font-size: 15px;
@@ -271,17 +276,16 @@ button {
 ============================================*/
 
 .newsbacknamber {
-  overflow: scroll;   /* スクロール表示 */ 
+  overflow: scroll;   /* スクロール表示 */
 	width:400px; margin:0 auto;	/*内容全体をセンタリングと、横幅*/
   height: 700px;            /*高さ*/
-  background-color: #FFF;　　/*背景色*/
+    background-color: #fff;
 }
 
 /*============================================
 ヘッダ
 ============================================*/
 div#header {
-	background-color:#ffffff;		/*ヘッダ部分の背景色*/
 }
 
 .ekuralogo {
@@ -333,4 +337,143 @@ div#header {
 }
 .footer-tab.location {
     text-align: right;
+}
+
+.xj-footer123 {
+    position: relative;
+}
+
+#gfooter {
+    background-color: #f6f9fa;
+}
+.foot {
+    /* background: #fff; */
+    /* color: #000; */
+    font: 12px/20px "微软雅黑","宋体";
+    min-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.foot_dark {
+    background-color: #f6f9fa;
+    /* color: #494949; */
+    color: #7b7b7b;
+}
+
+#gfooter .foot_top {
+    background-color: #1e2628;
+}
+
+#gfooter .foot_cpright {
+    padding: 50px 0 150px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.healthy {
+    clear: both;
+    background: #1e2628;
+    padding: 8px 3%;
+    text-align: center;
+    color: #4f5f5f;
+}
+
+.foot_lefts {
+    position: absolute;
+    margin-top: 45px;
+    top: 0;
+    width: 500px;
+    float: left;
+    display: inline;
+}
+
+.foot_links {
+    display: inline;
+    float: right;
+    list-style: none;
+}
+
+.healthy strong {
+    margin: 0 5px 0 0;
+}
+
+.foot_ieg_logo {
+    float: left;
+    /* width: 180px; */
+    width: 300px;
+    height: 135px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin: 10px 0 0 10px;
+    /* background: url(//game.gtimg.cn/images/js/2018foot/logo/foot-light.png); */
+}
+
+.foot_dark .foot_ieg_logo {
+    width: 300px;
+    padding-left: 100px;
+    display: inline-block;
+    background: url(../assets/homepage/WechatIMG355.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+}
+
+#gfooter .gfooter_selflogo {
+    width: 109px;
+    /* background-image: url(//game.gtimg.cn/images/wuxia/web201501/nav-copy.png); */
+    /* background: url(/static/home/images/common/logo.png); */
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+
+.foot_left {
+    float: left;
+    text-indent: -999em;
+    overflow: hidden;
+    margin: 10px 0 0 10px;
+    width: 85px;
+    height: 35px;
+}
+
+.foot_links .link_map {
+    font-size: 0;
+}
+.foot_links {
+    margin-top: 15px;
+}
+
+.foot_links li {
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.foot_links li {
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.foot_dark a {
+    color: #7b7b7b;
+}
+
+.span_line {
+    color: #7b7b7b;
+    font-size: 12px;
+}
+
+.f_line {
+    margin: 0 2px;
+}
+
+.foot_logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.foot_text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 35px;
+    margin-left: 25px;
+    color: #ccc;
 }
