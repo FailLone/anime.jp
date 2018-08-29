@@ -4,21 +4,33 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>title</title>
+  <title>首页</title>
   <meta name="description" content="关于页面的描述">
+
+  <link href="./theme/jquery.magnify.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
+  <script type="text/javascript" src="./src/jquery.magnify.min.js"></script>
   <script>
     var host = 'http://39.106.187.16:8000'
     $(function () {
+      $("[data-magnify=gallery]").magnify({
+        title: false,
+        footToolbar: ['zoomIn',
+          'zoomOut',
+          'fullscreen',
+          'actualSize',
+          'rotateRight' ]
+      })
       $.ajax({
         url: host + '/api/sowing', success: function (res) {
           if (res.statusNo === 1) {
             var html = ''
             for (var i = 0; i < res.data.length; i++) {
               var v = res.data[i]
-              html += '<li style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">' +
+              html += '<li>' +
                 '<a href="' + (v.url.indexOf('http') !== -1 ? v.url : 'http://' + v.url) + '" target="new">' +
                 '<img src="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
                 '</a>' +
@@ -102,7 +114,7 @@
         </a>
 
         <!-- tab2 -->
-        <a href="../info/index.html">
+        <a href="../info.html">
           <div style="width: 161px; height: 29px;display: inline-block;">
             <span style="font-size: 23px;font-weight: 600;">公司介绍</span>
           </div>
@@ -110,13 +122,20 @@
 
 
         <!-- tab3 -->
-        <a href="../katudou/index.html">
+        <a href="../katudou.html">
           <div style="width: 120px; height: 27px;display: inline-block;">
             <span style="font-size: 23px;font-weight: 600;">活动</span>
           </div>
         </a>
-
+        
         <!-- tab4 -->
+        <a href="../works.html">
+          <div style="width: 118px; height: 26px;display: inline-block;">
+            <span style="font-size: 23px;font-weight: 600;">作品简介</span>
+          </div>
+        </a>
+
+        <!-- tab5 -->
         <a href="../saiyou.html">
           <div style="width: 118px; height: 26px;display: inline-block;">
             <span style="font-size: 23px;font-weight: 600;">招聘</span>
@@ -152,11 +171,11 @@
             <br>
             <hr>
             <br>
-            <img width="540" src="./assets/homepage/1.jpeg" alt=""/>
+            <img width="540" data-magnify="gallery" data-src="./assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" src="./assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" alt=""/>
             <br>
             <hr>
             <br>
-            <img width="540" src="./assets/homepage/2.jpeg" alt=""/>
+            <img width="540" data-magnify="gallery" data-src="./assets/works/2.jpg" src="./assets/works/2.jpg" alt=""/>
           </td>
 
 
@@ -164,14 +183,24 @@
 
           <td width="250" align="center" valign="top">
 
-            <iframe id="weibo" style="width:240px; height:552px;border: 1px #ccc solid;margin-top: 18px;"   frameborder="0" scrolling="no" src="http://v.t.sina.com.cn/widget/widget_blog.php?uid=3056536741"></iframe>
-
-            <p>
-              <iframe style="margin-top: 15px;" src="/map.html" frameBorder=0 height=340 width=240 scrolling=no></iframe>
-              <br> ▶︎
-              <a href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%A4%A9%E6%B4%A5%E5%B8%82%E8%87%AA%E8%B4%B8%E8%AF%95%E9%AA%8C%E5%8C%BA%E7%86%99%E5%85%83%E5%B9%BF%E5%9C%BA1-2012" target="="_blank>查看地图</a>
-              <br>
-            </p>
+            <iframe id="weibo" style="width:240px; height:500px;border: 1px #ccc solid;margin-top: 18px;"   frameborder="0" scrolling="no" src="http://v.t.sina.com.cn/widget/widget_blog.php?uid=6643126199"></iframe>
+            <div style="margin-bottom: 8px; background-color: #fff; box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);">
+                <h3 style=" font-size: 12px; color: #3d3d3d; background: #f5f5f5; padding: 0 16px; height: 38px; line-height: 38px;">热门文章</h3>
+                <div style="padding: 16px; overflow: hidden;">
+                  <ul style="margin-top: -8px; word-break: break-all; list-style: none;text-align: left;">
+                      <li style="margin-top: 8px;    word-break: break-all;">
+                          <a target="_blank" style=" display: block; max-height: 44px; overflow: hidden; word-break: break-all;font-size: 14px;line-height: 22px;" href="https://mp.weixin.qq.com/s?__biz=Mzg5MzAwNzI1OA==&mid=2247483655&idx=1&sn=f850663be339b4369d988c562134941a&chksm=c03425f2f743ace4a25e6787369548767f91be21caa2bc0104e59992f7982d767cf99ce5a453&mpshare=1&scene=1&srcid=0822TqqBC9avhzxHlEu9uam9&pass_ticket=cXUq0fsZbV3%2B0qgi7OyWKCseGZL1xFqilMkLkf8rr1dDXQczOT24TFE7SKUTB7U9#rd">
+                          天津左瀛动漫设计有限公司正式成立啦~！！！
+                          </a>
+                      </li>
+                      <li style="margin-top: 8px;    word-break: break-all;">
+                          <a target="_blank" style=" display: block; max-height: 44px; overflow: hidden; word-break: break-all;font-size: 14px;line-height: 22px;" href="https://mp.weixin.qq.com/s?__biz=Mzg5MzAwNzI1OA==&mid=2247483680&idx=1&sn=07ea16f3103067b5dcd5db97cccfe18a&chksm=c03425d5f743acc3dd20286c69c385516b487c915bf661cc1b2f4163188bca14c3d3e4fd8521&mpshare=1&scene=1&srcid=0828A2JwBqTOSO1XJ2BpueyG&pass_ticket=cXUq0fsZbV3%2B0qgi7OyWKCseGZL1xFqilMkLkf8rr1dDXQczOT24TFE7SKUTB7U9#rd">
+                          致敬樱桃子 | 谢谢你，让我们遇见了小丸子和她的世界
+                          </a>
+                      </li>
+                  </ul>
+                </div>
+            </div>
 
           </td>
         </tr>
@@ -182,36 +211,6 @@
         </tr>
       </tbody>
     </table>
-
-    <!--<div id="footer">-->
-      <!--<a name="footer"></a>-->
-      <!--<div class="footer-content">-->
-        <!--<div class="footer-row">-->
-          <!--<div class="sprite-contact-cta"></div>-->
-          <!--<div class="footer-tab contact-us">-->
-            <!--<h3>CONTACT US</h3>-->
-            <!--<p>zuozuo_0101@126.com（中国）-->
-                  <!--zuozuo0101@gmail.com（日本）</p>-->
-            <!--<h3>TEL</h3>-->
-            <!--<p>18222177796（中国）-->
-                  <!--81+09098422118（日本）</p>-->
-          <!--</div>-->
-          <!--<div class="footer-tab"><div style="height: 150px"></div></div>-->
-          <!--<div class="footer-tab location">-->
-            <!--<h3>LOCATION</h3>-->
-            <!--<p>天津市自贸试验区熙元广场1-2012</p>-->
-            <!--<p class="footer-map">-->
-              <!--<a href="http://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%A4%A9%E6%B4%A5%E5%B8%82%E8%87%AA%E8%B4%B8%E8%AF%95%E9%AA%8C%E5%8C%BA%E7%86%99%E5%85%83%E5%B9%BF%E5%9C%BA1-2012"-->
-                <!--target="_blank">-->
-                <!--<span class="sprite sprite-map"></span>View Map</a>-->
-            <!--</p>-->
-            <!--<h3>FAX</h3>-->
-            <!--<p>81-0424615301（日本）</p>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div id="legal">© ANIMAL - Making life more meaningful</div>-->
-      <!--</div>-->
-    <!--</div>-->
   </div>
   <!-- #EndLibraryItem -->
 
@@ -239,6 +238,7 @@
               <span class="f_line">|</span>
               <a target="_blank" href="#">zuozuo0101@gmail.com(日本)</a></li>
           </ul>
+          <img class="foot_right" width="100" src="./assets/homepage/二维码.jpg">
             </div>
       </div>
     </div>
