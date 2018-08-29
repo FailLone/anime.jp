@@ -3,24 +3,32 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>作品简介</title>
+    <title>公司介绍</title>
 
-    <link href="../theme/caiyong.css" rel="stylesheet" type="text/css">
-    <link href="../theme/works.css" rel="stylesheet" type="text/css">
-    <link href="./theme/jquery.magnify.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../theme/info.css" rel="stylesheet" type="text/css">
     <script src="./src/jquery.min.js"></script>
-    <script type="text/javascript" src="./src/jquery.magnify.min.js"></script>
     <script>
-        $(function(){
-            $('#gallery-container').sGallery({
-                fullScreenEnabled: true
-            });
-            $("[data-magnify=gallery]").magnify(
-
-            )
-            $("[data-original]").lazyload()
-        })
+        var host = 'http://39.106.187.16:8000'
+       $(function() {
+           $.ajax({url: host + '/api/production', success: function(res) {
+               if (res.statusNo === 1) {
+                    var html = ''
+                   for (var i = 0; i < res.data.length; i++) {
+                       var v = res.data[i]
+                       html += '<li style="cursor: pointer"><a>' + v.title + '</a></li>'
+                       if (i === 0 ) {
+                           $('#content').html(v.content)
+                       }
+                   }
+                    $('#sidemenu ul').html(html);
+                    $('#sidemenu ul li').each(function(k, v) {
+                        $(this).on('click', function() {
+                            $('#content').html(res.data[k].content)
+                        })
+                    })
+               }
+           }})
+       })
     </script>
 </head>
 
@@ -34,11 +42,12 @@
                         <td width="540" height="103" align="left" valign="top">
                             <div class="ekuralogo">
                                 <a href="../index.html">
-                                  <img src="./assets/homepage/WechatIMG355.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
+                                    <img src="./assets/homepage/WechatIMG355.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
                                 </a>
                             </div>
                         </td>
                         <td width="300" align="right" valign="top">
+
                             <a href="#contact">
                                 <img src="../assets/homepage/contact.png" width="200" height="100" alt="联系我们" hspace="8">
                             </a>
@@ -88,148 +97,38 @@
                 </a>
             </center>
         </div>
-        <div id="gallery-container">
-            <ul class="items--small">
-                <li class="item"><a href="#"><img data-original="../assets/works/1.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/2.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/2fba39400de4f928.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/08.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/11.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/500_a_large.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/500_c_large.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/S36C-6e16021206490_0006.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/S36C-6e16021207540_0014.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/S36C-6e16021210500_0003.jpg" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/vlcsnap-2014-04-24-18h19m12s6.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/vlcsnap-2014-04-24-18h23m48s173.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/vlcsnap-2014-04-24-18h28m38s16.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/vlcsnap-2014-04-24-19h00m28s190.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/vlcsnap-2014-04-24-19h22m37s164.png" alt="" /></a></li>
-                <li class="item"><a href="#"><img data-original="../assets/works/スクリーンショット 2016-04-30 19.40.51.png" alt="" /></a></li>
-            </ul>
-            <ul class="items--big">
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/1.jpg" data-original="../assets/works/1.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/2.jpg" data-original="../assets/works/2.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/2fba39400de4f928.jpg" data-original="../assets/works/2fba39400de4f928.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/08.jpg" data-original="../assets/works/08.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/11.jpg" data-original="../assets/works/11.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" data-original="../assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/500_a_large.jpg" data-original="../assets/works/500_a_large.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/500_c_large.jpg" data-original="../assets/works/500_c_large.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/S36C-6e16021206490_0006.jpg" data-original="../assets/works/S36C-6e16021206490_0006.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/S36C-6e16021207540_0014.jpg" data-original="../assets/works/S36C-6e16021207540_0014.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/S36C-6e16021210500_0003.jpg" data-original="../assets/works/S36C-6e16021210500_0003.jpg" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/vlcsnap-2014-04-24-18h19m12s6.png" data-original="../assets/works/vlcsnap-2014-04-24-18h19m12s6.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/vlcsnap-2014-04-24-18h23m48s173.png" data-original="../assets/works/vlcsnap-2014-04-24-18h23m48s173.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/vlcsnap-2014-04-24-18h28m38s16.png" data-original="../assets/works/vlcsnap-2014-04-24-18h28m38s16.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/vlcsnap-2014-04-24-19h00m28s190.png" data-original="../assets/works/vlcsnap-2014-04-24-19h00m28s190.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/vlcsnap-2014-04-24-19h22m37s164.png" data-original="../assets/works/vlcsnap-2014-04-24-19h22m37s164.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-                <li class="item--big">
-                    <a href="#">
-                    <figure>
-                        <img  data-magnify="gallery" data-src="../assets/works/スクリーンショット 2016-04-30 19.40.51.png" data-original="../assets/works/スクリーンショット 2016-04-30 19.40.51.png" alt="" />
-                    </figure>
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+
+        <!-- メニューend -->
+
+        <table width="850" border="0" cellspacing="40">
+            <tbody>
+                <tr>
+                    <td valign="top" width="200" height="138">
+
+
+                        <!-- ▼▼ページ内容 -->
+
+
+                        <!-- ▼サイドメニュー -->
+
+                        <div id="sidemenu">
+                            <ul>
+                            </ul>
+                        </div>
+
+
+                        <!-- サイドメニューend -->
+
+
+                    </td>
+                    <td align="left" valign="top">
+                        <div id="content">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
     <!-- #EndLibraryItem -->
@@ -266,6 +165,5 @@
 
     <audio controls="controls" style="display: none;"></audio>
 </body>
-<script src="./src/works.js"></script>
-<script src="./src/lazyload.min.js"></script>
+
 </html>
