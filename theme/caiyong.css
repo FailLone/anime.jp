@@ -24,7 +24,7 @@ body {
 
 div#pagebody {
     min-height: 700px;
-	width:850px; margin:0 auto;	/*内容全体をセンタリング*/
+	margin:0 auto;	/*内容全体をセンタリング*/
 	text-decoration:none;			/*リンクの下線を無くす*/
 }
 
@@ -281,8 +281,13 @@ div#header {
 .foot_links .link_map {
     font-size: 0;
 }
+.foot_right {
+    position: absolute;
+    right: 273px;
+    top: 0;
+}
 .foot_links {
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .foot_links li {
