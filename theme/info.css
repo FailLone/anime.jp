@@ -19,7 +19,18 @@ body {
 
 body {
     margin: 0;
-    background: url(../assets/homepage/dh_bg.jpg) no-repeat scroll center 0 transparent;
+}
+
+.backgroud {
+    background: url(../assets/homepage/WechatIMG581.png) no-repeat scroll center 0 transparent;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index: -1;
 }
 
 div#pagebody {
@@ -80,7 +91,7 @@ span2 {
 /*線*/
 hr{
 border:none;
-border-top:dashed 3px #6787b0;　　　/*太さと色*/
+border-top:dashed 3px #6787b0;
 height:1px;     /*破線の間隔*/
 color:#FFFFFF;
 width:500px; margin:0 auto;	/*内容全体をセンタリング*/
@@ -92,7 +103,7 @@ a:visited { color: #6787b0;
          text-decoration: none; }  /*訪問済みのリンク*/
 a:hover { color: #FFCC99;
          text-decoration: none; }    /*ポイント時のリンク*/
-a:active { color: ##FFCC99;
+a:active { color: #FFCC99;
          text-decoration: none; }   /*選択中のリンク*/
 
 /*サイトマップ用文字*/
@@ -124,10 +135,10 @@ margin: 0;
 #sidemenu li a{
 display: block;
 border: 1px solid #FFF;
-background-color: #c6e1ef;　　/*背景色*/
+background-color: #c6e1ef;
 padding: 3px 10px;
 text-decoration: none;
-color: #336699;　　　　　　/*文字色*/
+color: #336699;
 width: 200px;
 margin: 10px 0px;
 text-align: left;
@@ -138,7 +149,7 @@ font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリ�
 }
 #sidemenu li a:hover{
 border: 1px solid #FFF;
-background-color: #b0c4de;　　/*オンマウス背景色*/
+background-color: #b0c4de;
 }
 
 /*============================================
@@ -157,10 +168,10 @@ margin: 0;
 #sidemenu2 li a{
 display: block;
 border: 1px solid #FFF;
-background-color: #E5F3FF;　　/*背景色*/
+background-color: #E5F3FF;
 padding: 3px 10px;
 text-decoration: none;
-color: #336699;　　　　　　/*文字色*/
+color: #336699;
 width: 200px;
 margin: 10px 0px;
 text-align: left;
@@ -171,7 +182,7 @@ font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリ�
 }
 #sidemenu2 li a:hover{
 border: 1px solid #FFF;
-background-color: #C1DFFF;　　/*オンマウス背景色*/
+background-color: #C1DFFF;
 }
 
 /*============================================

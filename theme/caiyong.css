@@ -19,13 +19,25 @@ body {
 
 body {
     margin: 0;
-    background: url(../assets/homepage/dh_bg.jpg) no-repeat scroll center 0 transparent;
+}
+
+.backgroud {
+    background: url(../assets/homepage/WechatIMG581.png) no-repeat scroll center 0 transparent;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index: -1;
 }
 
 div#pagebody {
     min-height: 700px;
-	margin:0 auto;	/*内容全体をセンタリング*/
-	text-decoration:none;			/*リンクの下線を無くす*/
+    width:850px;
+	margin:0 auto;
+	text-decoration:none;
 }
 
 /*見出し１*/

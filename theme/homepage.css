@@ -24,7 +24,18 @@ ul {
 
 body {
     margin: 0;
-    background: url(../assets/homepage/dh_bg.jpg) no-repeat scroll center 0 transparent;
+}
+
+.backgroud {
+    background: url(../assets/homepage/WechatIMG581.png) no-repeat scroll center 0 transparent;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index: -1;
 }
 
 div#pagebody {
@@ -60,8 +71,8 @@ p {
 /*線*/
 hr{
 border: none;
-border-top: dashed 2px #6787b0;　　　/*太さと色*/
-height: 1px;     /*破線の間隔*/
+border-top: dashed 2px #6787b0;
+height: 1px;
 color: #FFFFFF;
 margin: 0 auto;	/*内容全体をセンタリング*/
 }
