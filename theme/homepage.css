@@ -349,3 +349,64 @@ span {
     margin-left: 25px;
     color: #ccc;
 }
+
+.wgtTop {
+    zoom:1;
+    overflow: hidden;
+    padding: 10px;
+    padding-bottom: 0;
+    position: absolute;
+    width: 220px;
+    margin-bottom: 4px;
+    background-color: #f3f3f3;
+    border: solid 1px rgb(210, 210, 210);
+    border-bottom: 0px;
+    height: 57px;
+    margin-top: 18px;
+}
+
+.wgtTop .userPt {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.wgtTop .userPt img {
+    background-color: #FFF;
+    padding: 2px;
+    border: 1px solid #DDD;
+}
+
+.wgtTop .userInfo {
+    margin-left: 55px;
+    padding-top: 6px;
+    text-align: left;
+}
+
+.wgtTop .userInfo .userNm {
+    font-size: 14px;
+    clear: both;
+    width: 155px;
+}
+
+.wgtTop .userInfo .userfans {
+    clear: both;
+    margin-top: 5px;
+}
+
+.wgtTop .userInfo .msg {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+.wgtTop .wgtTop_icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+}
