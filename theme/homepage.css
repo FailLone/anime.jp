@@ -361,7 +361,7 @@ span {
     background-color: #f3f3f3;
     border: solid 1px rgb(210, 210, 210);
     border-bottom: 0px;
-    height: 57px;
+    height: 67px;
     margin-top: 18px;
 }
 
@@ -384,6 +384,7 @@ span {
     margin-left: 55px;
     padding-top: 6px;
     text-align: left;
+    margin-top: 13px;
 }
 
 .wgtTop .userInfo .userNm {
