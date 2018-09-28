@@ -13,6 +13,8 @@
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
   <script type="text/javascript" src="./src/jquery.magnify.min.js"></script>
+      <link href="../theme/select.css" rel="stylesheet" type="text/css">
+    <script src="./src/select.js"></script>
   <script>
     var host = 'http://39.106.187.16:8000'
     $(function () {
@@ -129,12 +131,11 @@
         </a>
 
         <!-- tab4 -->
-        <a href="../works.html">
+        <a class="works" href="javascript:void(0)">
           <div style="width: 118px; height: 26px;display: inline-block;">
             <span style="font-size: 23px;font-weight: 600;">作品简介</span>
           </div>
         </a>
-
         <!-- tab5 -->
         <a href="../saiyou.html">
           <div style="width: 118px; height: 26px;display: inline-block;">
@@ -143,6 +144,12 @@
         </a>
       </center>
     </div>
+    <div id="box" class="hidden-box hidden-loc-us">
+                    <ul>
+                        <a href="../works/illu.html"><li>插画</li></a>
+                        <a href="../works/anime.html"><li>动画</li></a>
+                    </ul>
+                </div>
 
     <!-- 轮播 -->
 
