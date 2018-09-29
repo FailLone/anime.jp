@@ -11,7 +11,6 @@
   font-size: 20px;
   margin: auto;
   position: relative;
-  max-width: 80%;
   text-align: center;
   overflow: hidden;
   padding-top: 1em
@@ -114,7 +113,7 @@
 .item {
   display: inline-block;
   cursor: pointer;
-  width: 24%;
+  width: 30%;
   height: auto;
   margin-right: .5%
 }
@@ -390,4 +389,14 @@
     right: 10%;
     left: 10%
   }
+}
+
+#sidemenu div {
+  color: #336699;
+  line-height: 2;
+}
+
+#content1 iframe {
+    width: 800px;
+    height: 481px;
 }
