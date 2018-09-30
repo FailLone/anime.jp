@@ -493,3 +493,10 @@ div#header {
     margin-left: 25px;
     color: #ccc;
 }
+
+#content {
+    width: 524px;
+}
+#content img {
+    width: 100%;
+}

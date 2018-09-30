@@ -24,19 +24,19 @@
               var v = res.data[i]
               html += '<li class="item">' +
                 '<a href="#">' +
-                '<img data-original="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
+                '<img data-magnify="gallery" data-src="' + host + v.image + '" data-original="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
                 '</a>' +
                 '</li>'
-              html2 += '<li class="item--big">' +
-                    '<a href="#">' +
-                    '<figure>' +
-                        '<img  data-magnify="gallery"' + 'data-src="' + host + v.image + '"' + 'data-original="' + host + v.image + '" alt="" />' +
-                    '</figure>' +
-                    '</a>' +
-               '</li>'
+            //   html2 += '<li class="item--big">' +
+            //         '<a href="#">' +
+            //         '<figure>' +
+            //             '<img  data-magnify="gallery"' + 'data-src="' + host + v.image + '"' + 'data-original="' + host + v.image + '" alt="" />' +
+            //         '</figure>' +
+            //         '</a>' +
+            //    '</li>'
             }
             $('#gallery-container .items--small').html(html)
-            $('#gallery-container .items--big').html(html2)
+            // $('#gallery-container .items--big').html(html2)
             $('#gallery-container').sGallery({
                 fullScreenEnabled: true
             });
@@ -62,6 +62,7 @@
                             <div class="ekuralogo">
                                 <a href="../index.html">
                                   <img src="../assets/homepage/WechatIMG105.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
+                  <img width="130" src="../assets/homepage/563593290530750059.png" alt="左瀛动漫">
                                 </a>
                             </div>
                         </td>
@@ -137,7 +138,7 @@
           <div class="foot_cpright">
             <div class="foot_lefts">
               <img class="foot_logo" width="120" src="../assets/homepage/WechatIMG355.png" alt="左瀛动漫">
-              <span class="foot_text">左瀛动漫</span>
+            <img class="foot_logo" width="120" src="../assets/homepage/563593290530750059.png" alt="左瀛动漫">
             </div>
             <ul class="foot_links">
               <li class="copyright_zh">

@@ -274,9 +274,9 @@
                 }
             });
             
-            this.$document.delegate('.magnify-button-close', 'click', function(){
-                that.quitSlideShow();
-            });
+            // this.$document.delegate('.magnify-button-close', 'click', function(){
+            //     that.quitSlideShow();
+            // });
         },
 
         controlFullScreen: function(){

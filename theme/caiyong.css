@@ -7,7 +7,6 @@
 * {
 	line-height:1.5;	/*全要素の行の高さを1.5倍にする*/
 	font-style:normal;			 /*フォントスタイルを標準にする*/
-	color:#000000;		/*文字色*/
 
 }
 #header a:hover {
