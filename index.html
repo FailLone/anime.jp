@@ -8,7 +8,7 @@
   <meta name="description" content="关于页面的描述">
 
   <link href="./theme/jquery.magnify.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
 
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
@@ -17,14 +17,14 @@
   <script>
     var host = 'http://39.106.187.16:8000'
     $(function () {
-      $("[data-magnify=gallery]").magnify({
-        title: false,
-        footToolbar: ['zoomIn',
-          'zoomOut',
-          'fullscreen',
-          'actualSize',
-          'rotateRight' ]
-      })
+      // $("[data-magnify=gallery]").magnify({
+      //   title: false,
+      //   footToolbar: ['zoomIn',
+      //     'zoomOut',
+      //     'fullscreen',
+      //     'actualSize',
+      //     'rotateRight' ]
+      // })
       $.ajax({
         url: host + '/api/sowing', success: function (res) {
           if (res.statusNo === 1) {
