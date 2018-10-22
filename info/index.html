@@ -12,20 +12,34 @@
     <script>
         var host = 'http://39.106.187.16:8000'
        $(function() {
-           $.ajax({url: host + '/api/company', success: function(res) {
+           $.ajax({url: host + '/api/web/company', success: function(res) {
                if (res.statusNo === 1) {
                     var html = ''
+                    var member = []
+                    var info = []
                    for (var i = 0; i < res.data.length; i++) {
                        var v = res.data[i]
-                       html += '<li style="cursor: pointer"><a>' + v.title + '</a></li>'
-                       if (i === 0 ) {
+                       if (v.member) {
+                           member.push({t: v.title, c: v.content})
+                           continue
+                       }
+                       if (!html) {
                            $('#content').html(v.content)
                        }
+                       html += '<li style="cursor: pointer"><a>' + v.title + '</a></li>'
+                       
+                       info.push({c: v.content})
+                   }
+                   if (member.length) {
+                       html += '<h2>成员介绍</h2><div class="sidemenu">'
+                   }
+                   for (var i = 0; i < member.length;i++) {
+                       html += '<ul><li style="cursor: pointer"><a>' + member[i].t + '</ul></li></a>'
                    }
                     $('#sidemenu ul').html(html);
                     $('#sidemenu ul li').each(function(k, v) {
                         $(this).on('click', function() {
-                            $('#content').html(res.data[k].content)
+                            $('#content').html(info.concat(member)[k].c)
                         })
                     })
                }
@@ -46,7 +60,7 @@
                             <div class="ekuralogo">
                                 <a href="../index.html">
                                     <img src="./assets/homepage/WechatIMG105.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
-                  <img width="150" src="./assets/homepage/563593290530750059.png" alt="左瀛动漫">
+                  <img width="200" src="./assets/homepage/563593290530750059.png" style="margin-bottom: -30px;" alt="左瀛动漫">
                                 </a>
                             </div>
                         </td>
@@ -163,7 +177,7 @@
               <li class="copyright_public">
                 <span class="span_line">传真：81-0424615301(日本)</span>
                 <span class="f_line">|</span>
-                <span class="span_line">邮箱：zuozuo_0101@126.com(中国)</span>
+                <span class="span_line">邮箱：zowin2018@163.com(中国)</span>
                 <span class="f_line">|</span>
                 <a target="_blank" href="#">zuozuo0101@gmail.com(日本)</a></li>
             </ul>

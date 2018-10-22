@@ -7,26 +7,17 @@
   <title>首页</title>
   <meta name="description" content="关于页面的描述">
 
-  <link href="./theme/jquery.magnify.css" rel="stylesheet">
-  <!--<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href="../theme/responsiveslides.css" rel="stylesheet" type="text/css">
+      <link href="../theme/select.css" rel="stylesheet" type="text/css">
 
   <script src="./src/jquery.min.js"></script>
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
-      <link href="../theme/select.css" rel="stylesheet" type="text/css">
     <script src="./src/select.js"></script>
   <script>
     var host = 'http://39.106.187.16:8000'
     $(function () {
-      // $("[data-magnify=gallery]").magnify({
-      //   title: false,
-      //   footToolbar: ['zoomIn',
-      //     'zoomOut',
-      //     'fullscreen',
-      //     'actualSize',
-      //     'rotateRight' ]
-      // })
       $.ajax({
-        url: host + '/api/sowing', success: function (res) {
+        url: host + '/api/web/sowing', success: function (res) {
           if (res.statusNo === 1) {
             var html = ''
             for (var i = 0; i < res.data.length; i++) {
@@ -38,12 +29,12 @@
                 '</li>'
             }
             $('.rslides').html(html).responsiveSlides({
+              pager: true,
               speed: 500,            // Integer: Speed of the transition, in milliseconds
               timeout: 6000,          // Integer: Time between slide transitions, in milliseconds
-              pager: false,           // Boolean: Show pager, true or false
               nav: true,             // Boolean: Show navigation, true or false
-              prevText: "＜",   // String: Text for the "previous" button
-              nextText: "＞",       // String: Text for the "next" button
+              prevText: "",   // String: Text for the "previous" button
+              nextText: "",       // String: Text for the "next" button
               before: function () { },   // Function: Before callback
               after: function () { }     // Function: After callback
             })
@@ -51,7 +42,7 @@
         }
       })
       $.ajax({
-        url: host + '/api/news', success: function (res) {
+        url: host + '/api/web/news', success: function (res) {
           if (res.statusNo === 1) {
             var html = ''
             for (var i = 0; i < res.data.length; i++) {
@@ -90,7 +81,7 @@
               <div class="ekuralogo">
                 <a href="./index.html">
                   <img src="./assets/homepage/WechatIMG105.png" width="130" height="130" alt="左灜">
-                  <img width="150" src="./assets/homepage/563593290530750059.png" alt="左瀛动漫">
+                  <img width="200" src="./assets/homepage/563593290530750059.png" style="margin-bottom: -30px;" alt="左瀛动漫">
                 </a>
               </div>
             </td>
@@ -172,22 +163,24 @@
 
             <br>
             <img src="./assets/homepage/news.png" width="250" height="42" alt="news">
+            <div class="newswrapper">
             <div style="height: 150px;" class="news" id="xinweng">
             </div>
-            <iframe style="margin: 15px" frameborder="0" width="540" height="298" src="https://v.qq.com/iframe/player.html?vid=c0762s6brso&tiny=0&auto=0" allowfullscreen></iframe>
+            </div>
+            <hr>
+            <h3 style="color: #6787b0;font-size: 23px;margin-top:7px;">近期主要活动</h3>
+            <iframe style="margin: 15px;margin-top:10px;" frameborder="0" width="540" height="298" src="https://v.qq.com/iframe/player.html?vid=c0762s6brso&tiny=0&auto=0" allowfullscreen></iframe>
             <br>
             <hr>
-            <br>
             <a href="./works/anime.html">
-              <h3 style="color: #6787b0;font-size: 23px;">动画作品</h3>
-              <img width="540" src="./assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" alt=""/>
+              <h3 style="color: #6787b0;font-size: 23px;margin-top:7px;">动画作品</h3>
+              <img width="540" height="369" src="./assets/works/36b95ab0-ff0f-4bb3-ba81-84171d916919.png" alt=""/>
             </a>
             <br>
             <hr>
-            <br>
             <a href="./works/illu.html">
-              <h3 style="color: #6787b0;font-size: 23px;">插画作品</h3>
-              <img width="540"  src="./assets/works/2.jpg" alt=""/>
+              <h3 style="color: #6787b0;font-size: 23px;margin-top:5px;margin-bottom: 10px;">插画作品</h3>
+              <img width="540" height="369"  src="./assets/works/2.jpg" alt=""/>
             </a>
           </td>
 

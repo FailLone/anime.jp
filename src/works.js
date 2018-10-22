@@ -70,6 +70,7 @@
             }
             this.changeHeight();
             this.handleTouch();
+            console.info(this.bigItem)
         },
 
         handleTouch: function(){

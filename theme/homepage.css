@@ -128,24 +128,27 @@ div#header {
 /*============================================
 更新履歴
 ============================================*/
-
+.newswrapper {
+    position: relative;
+    overflow: hidden;
+        height: 208px;
+    width: 530px;
+}
 .news {
+    margin-bottom: 19px;
     overflow: auto;
-	width:520px; margin:0;
+	width:520px;;
     text-align:left;
     height: 300px;
     background-color: #FFF;
     border: 1px #ccc solid;
     padding: 12px;
     margin-top: 15px;
-
-  scrollbar-face-color: #ffffff;
-　scrollbar-track-color: #ffffff;
-　scrollbar-arrow-color: #c0c0c0;
-　scrollbar-highlight-color: #ffffff;
-　scrollbar-shadow-color: #ffffff;
-　scrollbar-3dlight-color: #c0c0c0;
-　scrollbar-darkshadow-color: #ffffff;
+    position: absolute;
+	left: 0;
+	top: 0;
+	right: -17px;
+	bottom: 0;
 }
 
 span {

@@ -12,7 +12,7 @@
     <script>
         var host = 'http://39.106.187.16:8000'
        $(function() {
-           $.ajax({url: host + '/api/recruit', success: function(res) {
+           $.ajax({url: host + '/api/web/recruit', success: function(res) {
                if (res.statusNo === 1) {
                    var html = ''
                    var realData = []
@@ -51,7 +51,7 @@
                             <div class="ekuralogo">
                                 <a href="../index.html">
                                   <img src="./assets/homepage/WechatIMG105.png" width="130" height="130" alt="アニメ制作会社エクラアニマル">
-                  <img width="150" src="./assets/homepage/563593290530750059.png" alt="左瀛动漫">
+                  <img width="200" src="./assets/homepage/563593290530750059.png" style="margin-bottom: -30px;" alt="左瀛动漫">
                                 </a>
                             </div>
                         </td>

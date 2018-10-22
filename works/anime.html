@@ -23,13 +23,13 @@ $(
   function() {
     var host = 'http://39.106.187.16:8000'
             $.ajax({
-        url: host + '/api/photo ', success: function (res) {
+        url: host + '/api/web/photo ', success: function (res) {
           if (res.statusNo === 1) {
             var html = html2 = ''
             for (var i = 0; i < res.data.length; i++) {
               var v = res.data[i]
               html += '<li class="item">' +
-                '<img data-magnify="gallery" data-src="' + host + v.image + '" data-original="' + host + v.image + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
+                '<img data-magnify="gallery" data-src="' + host + (v.image || v.breviary) + '" src="' + host + (v.breviary || v.image) + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
                 '</li>'
               // html2 += '<li class="item--big">' +
               //       '<a href="#">' +
@@ -47,12 +47,11 @@ $(
             $("[data-magnify=gallery]").magnify(
 
             )
-            $("[data-original]").lazyload()
           }
         }
       })
       $.ajax({
-        url: host + '/api/video',
+        url: host + '/api/web/video',
         success: function(res) {
           if (res.statusNo === 1) {
             var side = $('#sidemenu ul li:nth-child(2)')
@@ -100,7 +99,7 @@ $(
               <div class="ekuralogo">
                 <a href="../index.html">
                   <img src="../assets/homepage/WechatIMG105.png" width="130" height="130" alt="左灜">
-                  <img width="150" src="../assets/homepage/563593290530750059.png" alt="左瀛动漫">
+                  <img width="200" src="../assets/homepage/563593290530750059.png" style="margin-bottom: -30px;" alt="左瀛动漫">
                 </a>
               </div>
             </td>
@@ -238,5 +237,4 @@ $(
   <audio controls="controls" style="display: none;"></audio>
 </body>
 <script src="../src/works.js"></script>
-<script src="../src/lazyload.min.js"></script>
 </html>
