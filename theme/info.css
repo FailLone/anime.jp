@@ -19,6 +19,7 @@ body {
 
 body {
     margin: 0;
+    position: relative;
 }
 
 .backgroud {
@@ -496,7 +497,4 @@ div#header {
 
 #content {
     width: 524px;
-}
-#content img {
-    width: 100%;
 }
