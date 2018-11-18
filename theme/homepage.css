@@ -27,6 +27,54 @@ body {
     position: relative;
 }
 
+.tag {
+    display: inline-block;
+    padding: 0 5px;
+    border: 1px solid red;
+    border-radius: 4px;
+    margin-right: 12px;
+    font-size: 12px;
+    vertical-align: middle;
+    width: 80px;
+    text-align: center;
+}
+
+
+.company {
+    color: #FF5151;
+    border-color: #FF5151;
+}
+
+.activity {
+    color: #FFFF37;
+    border-color: #FFFF37;
+}
+
+.inset {
+    color: #00E3E3;
+    border-color: #00E3E3;
+}
+
+.video {
+    color: #4EFEB3;
+    border-color: #4EFEB3;
+}
+
+.photo {
+    color: #FF8040;
+    border-color: #FF8040;
+}
+
+
+
+.news-link {
+    vertical-align: middle;
+}
+
+.news-container {
+    margin-top: 4px;
+}
+
 .backgroud {
     background: url(../assets/homepage/WechatIMG581.jpeg) no-repeat scroll center 0 transparent;
     filter:alpha(opacity=50);
@@ -132,24 +180,18 @@ div#header {
 .newswrapper {
     position: relative;
     overflow: hidden;
-        height: 208px;
     width: 530px;
 }
 .news {
     margin-bottom: 19px;
     overflow: auto;
-	width:520px;;
     text-align:left;
-    height: 300px;
     background-color: #FFF;
     border: 1px #ccc solid;
     padding: 12px;
     margin-top: 15px;
-    position: absolute;
-	left: 0;
-	top: 0;
-	right: -17px;
 	bottom: 0;
+    min-height: 120px;
 }
 
 span {

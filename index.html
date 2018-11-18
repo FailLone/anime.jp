@@ -14,7 +14,7 @@
   <script type="text/javascript" src="./src/responsiveslides.min.js"></script>
     <script src="./src/select.js"></script>
   <script>
-    var host = 'http://39.106.187.16:8000'
+    var host = 'http://localhost:8000'
     $(function () {
       $.ajax({
         url: host + '/api/web/sowing', success: function (res) {
@@ -43,20 +43,19 @@
       })
       $.ajax({
         url: host + '/api/web/news', success: function (res) {
-          if (res.statusNo === 1) {
-            var html = ''
-            for (var i = 0; i < res.data.length; i++) {
-              var v = res.data[i]
-              if (v.status === 1) {
-                html = v.content
-              }
+          var linkList = ['/info', '/katudou', '/works/illu', '/works/anime', '/works/anime']
+          var typeList = ['公司介绍', '活动', '插画类作品', '动画-视频类', '动画-图片类']
+          var colorList = ['company', 'activity', 'inset', 'video', 'photo']
+          var dataList = res.data
+          dataList.forEach(ret => {
+            if(ret.status === 1) {
+              $('#xinweng').append('<div class="news-container"><span class="tag ' + colorList[ret.type] + '"> ' + typeList[ret.type] + ' </span><a class="news-link" href=' + linkList[ret.type] + '>' + ret.title + '</a></div>')
             }
-          }
-          $('#xinweng').html(html)
+          })
+
         }
       })
       $('.television__channel a').on('click', function(e) {
-        console.info(123)
         $('.television__screen iframe').attr('src', $(this).attr('href'))
             e.preventDefault()
       })
@@ -164,7 +163,7 @@
             <br>
             <img src="./assets/homepage/news.png" width="250" height="42" alt="news">
             <div class="newswrapper">
-            <div style="height: 150px;" class="news" id="xinweng">
+            <div class="news" id="xinweng">
             </div>
             </div>
             <hr>
