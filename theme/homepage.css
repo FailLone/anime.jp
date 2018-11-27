@@ -457,3 +457,14 @@ span {
     right: 10px;
     bottom: 8px;
 }
+
+.other-logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.other-logo a {
+    display: block;
+    border: 1px solid #000;
+    margin-top: 10px;
+}

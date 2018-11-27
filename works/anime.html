@@ -19,34 +19,61 @@
   <script>
     var host = 'http://39.106.187.16:8000';
 
+    function groupBy(collection, iteratee) {
+      return collection.reduce(function(result, value, key) {
+        key = iteratee(value)
+        if (Object.prototype.hasOwnProperty.call(result, key)) {
+          result[key].push(value)
+        } else {
+          result[key] = [value]
+      }
+        return result
+      }, {})
+    }
+
 $(
   function() {
     var host = 'http://39.106.187.16:8000'
             $.ajax({
         url: host + '/api/web/photo ', success: function (res) {
           if (res.statusNo === 1) {
-            var html = html2 = ''
-            for (var i = 0; i < res.data.length; i++) {
-              var v = res.data[i]
-              html += '<li class="item">' +
-                '<img data-magnify="gallery" data-src="' + host + (v.image || v.breviary) + '" src="' + host + (v.breviary || v.image) + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
-                '</li>'
-              // html2 += '<li class="item--big">' +
-              //       '<a href="#">' +
-              //       '<figure>' +
-              //           '<img  data-magnify="gallery"' + 'data-src="' + host + v.image + '"' + 'data-original="' + host + v.image + '" alt="" />' +
-              //       '</figure>' +
-              //       '</a>' +
-              //  '</li>'
-            }
-            $('#gallery-container .items--small').html(html)
-            // $('#gallery-container .items--big').html(html2)
-            $('#gallery-container').sGallery({
-                fullScreenEnabled: true
-            });
-            $("[data-magnify=gallery]").magnify(
+            var side = $('#sidemenu ul li:nth-child(1)')
+            var dataList = groupBy(res.data, function(o) {
+              return o.tag
+            })
+            for(var key in dataList) {
+              var data = dataList[key]
+              var a = $('<div>&nbsp;&nbsp;&nbsp;&nbsp;'+ key + '</div>');
+              (
+                  function(m) {
+                    a.on('click', function() {
+                      var html = html2 = ''
+                      for (var i = 0; i < m.length; i++) {
+                        var v = m[i]
+                        html += '<li class="item">' +
+                          '<img data-magnify="gallery" data-src="' + host + (v.image || v.breviary) + '" src="' + host + (v.breviary || v.image) + '" style="border-radius: 25px;" title="' + v.title + '" 　alt="' + v.title + '">' +
+                          '</li>'
+                        // html2 += '<li class="item--big">' +
+                        //       '<a href="#">' +
+                        //       '<figure>' +
+                        //           '<img  data-magnify="gallery"' + 'data-src="' + host + v.image + '"' + 'data-original="' + host + v.image + '" alt="" />' +
+                        //       '</figure>' +
+                        //       '</a>' +
+                        //  '</li>'
+                      }
+                      $('#gallery-container .items--small').html(html)
+                      // $('#gallery-container .items--big').html(html2)
+                      $('#gallery-container').sGallery({
+                          fullScreenEnabled: true
+                      });
+                      $("[data-magnify=gallery]").magnify(
 
-            )
+                      )
+                    })
+                  }
+                )(data)
+                side.append(a)
+            }
           }
         }
       })
@@ -61,6 +88,7 @@ $(
 
               (
                 function(m) {
+                  console.log(1111, m)
                   a.on('click', function() {
                     $('#content1').html(m)
                   }
@@ -106,7 +134,7 @@ $(
             <td width="300" align="right" valign="top">
 
               <a href="http://www.anime.or.jp">
-                <img src="../assets/homepage/contact.png" width="150" alt="联系我们" title="此处文案待补充" hspace="8">
+                <img src="../assets/homepage/contact.png" width="150" alt="联系我们" title="左瀛动漫（日本）：动画制作会 社爱酷拉" hspace="8">
               </a>
             </td>
           </tr>
