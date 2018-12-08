@@ -8,7 +8,7 @@
     <link href="../theme/caiyong.css" rel="stylesheet" type="text/css">
     <link href="../theme/works.css" rel="stylesheet" type="text/css">
     <link href="../theme/jquery.magnify.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="../src/jquery.min.js"></script>
     <script type="text/javascript" src="../src/jquery.magnify.min.js"></script>
             <link href="../theme/select.css" rel="stylesheet" type="text/css">
@@ -21,6 +21,9 @@
           if (res.statusNo === 1) {
             var html = html2 = ''
             for (var i = 0; i < res.data.length; i++) {
+              if(i > 3) {
+                continue;
+              }
               var v = res.data[i]
               html += '<li class="item">' +
                 '<a href="#">' +
@@ -38,6 +41,40 @@
             $('#gallery-container .items--small').html(html)
             // $('#gallery-container .items--big').html(html2)
             $('#gallery-container').sGallery({
+                fullScreenEnabled: true
+            });
+            $("[data-magnify=gallery]").magnify(
+
+            )
+          }
+        }
+      })
+
+      $.ajax({
+        url: host + '/api/web/photo ', success: function (res) {
+          if (res.statusNo === 1) {
+            var html = html2 = ''
+            for (var i = 0; i < res.data.length; i++) {
+              if(i > 3) {
+                continue;
+              }
+              var v = res.data[i]
+              html += '<li class="item">' +
+                '<a href="#">' +
+                '<img data-magnify="gallery" data-src="' + host + (v.image || v.breviary) + '" src="' + host + (v.breviary || v.image) + '" style="border-radius: 25px;" 　alt="' + v.title + '">' +
+                '</a>' +
+                '</li>'
+            //   html2 += '<li class="item--big">' +
+            //         '<a href="#">' +
+            //         '<figure>' +
+            //             '<img  data-magnify="gallery"' + 'data-src="' + host + v.image + '"' + 'data-original="' + host + v.image + '" alt="" />' +
+            //         '</figure>' +
+            //         '</a>' +
+            //    '</li>'
+            }
+            $('#gallery-container-photo .items--small-photo').html(html)
+            // $('#gallery-container .items--big').html(html2)
+            $('#gallery-container-phtot').sGallery({
                 fullScreenEnabled: true
             });
             $("[data-magnify=gallery]").magnify(
@@ -102,10 +139,10 @@
 
                 <!-- tab4 -->
                 <a href="../works/works.html">
-                    <div style="width: 120px; height: 27px;display: inline-block;">
-                        <span style="font-size: 23px;font-weight: 600;">作品介绍</span>
-                    </div>
-                  </a>
+                  <div style="width: 120px; height: 27px;display: inline-block;">
+                      <span style="font-size: 23px;font-weight: 600;">作品介绍</span>
+                  </div>
+                </a>
 
                 <!-- tab4 -->
                 <a href="../saiyou.html">
@@ -115,11 +152,25 @@
                 </a>
             </center>
         </div>
-        <div id="gallery-container">
-            <ul class="items--small">
+        <div style="margin-top:20px;text-align: center;">
+          <span class="gallery-title">插画作品：</span>
+          <div id="gallery-container" style="display: inline-block;vertical-align: middle;text-align: left;width: 565px;">
+            <ul class="items--small" style="width: 750px;">
             </ul>
             <ul class="items--big">
             </ul>
+          </div>
+          <a href="../works/illu.html" style="display: inline-block;vertical-align: middle;">更多</a>
+        </div>
+        <div style="margin-top:20px;text-align: center;">
+          <span class="gallery-title">动画作品：</span>
+          <div id="gallery-container-photo" style="display: inline-block;vertical-align: middle;text-align: left;width: 565px;">
+            <ul class="items--small-photo" style="width: 750px;">
+            </ul>
+            <ul class="items--big-photo">
+            </ul>
+          </div>
+          <a href="../works/anime.html" style="display: inline-block;vertical-align: middle;">更多</a>
         </div>
 
     </div>

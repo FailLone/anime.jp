@@ -413,3 +413,7 @@
     width: 800px;
     height: 481px;
 }
+
+.gallery-title {
+  display: inline-block;
+}
