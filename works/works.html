@@ -20,7 +20,7 @@
         url: host + '/api/web/inset ', success: function (res) {
           if (res.statusNo === 1) {
             var html = html2 = ''
-            for (var i = 0; i < res.data.length; i++) {
+            for (var i = 0; i < Math.min(res.data.length, 3); i++) {
               if(i > 3) {
                 continue;
               }
@@ -38,6 +38,7 @@
             //         '</a>' +
             //    '</li>'
             }
+            console.log(html)
             $('#gallery-container .items--small').html(html)
             // $('#gallery-container .items--big').html(html2)
             $('#gallery-container').sGallery({
@@ -54,7 +55,7 @@
         url: host + '/api/web/photo ', success: function (res) {
           if (res.statusNo === 1) {
             var html = html2 = ''
-            for (var i = 0; i < res.data.length; i++) {
+            for (var i = 0; i < Math.min(res.data.length, 3); i++) {
               if(i > 3) {
                 continue;
               }
@@ -160,7 +161,7 @@
             <ul class="items--big">
             </ul>
           </div>
-          <a href="../works/illu.html" style="display: inline-block;vertical-align: middle;">更多</a>
+          <a href="../works/illu.html" style="display: inline-block;vertical-align: middle;font-size: 20px;">更多</a>
         </div>
         <div style="margin-top:20px;text-align: center;">
           <span class="gallery-title">动画作品：</span>
@@ -170,7 +171,7 @@
             <ul class="items--big-photo">
             </ul>
           </div>
-          <a href="../works/anime.html" style="display: inline-block;vertical-align: middle;">更多</a>
+          <a href="../works/anime.html" style="display: inline-block;vertical-align: middle;font-size: 20px;">更多</a>
         </div>
 
     </div>
